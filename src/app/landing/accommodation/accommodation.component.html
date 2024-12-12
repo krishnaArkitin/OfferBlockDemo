@@ -1,0 +1,169 @@
+<!-- <section class="Accommodation py-5">
+    <h2>Accommodation</h2>
+    <div class="container Accommodation-container">
+      <div class="row justify-content-center">
+        <div class="col-lg-4">
+          <label for="citySelect" class="form-label">Select City</label>
+          <select class="form-select" id="citySelect" [(ngModel)]="selectedCity" (change)="onCityChange()">
+            <option selected>Select City</option>
+            <option *ngFor="let city of cities" [value]="city.name">{{ city.name }}</option>
+          </select>
+        </div>
+        <div class="col-lg-8">
+          <label for="searchInput" class="form-label">Search</label>
+          <div class="input-group rounded">
+            <input type="search" class="form-control rounded" id="searchInput" [(ngModel)]="searchInput" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+            <span class="input-group-text border-0" id="search-addon">
+              <i class="bi bi-search"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="row justify-content-center">
+        <div class="col">
+          <label for="buildingTypeSelect" class="form-label">Building Type</label>
+          <select class="form-select" id="buildingTypeSelect" [(ngModel)]="selectedBuildingType" (change)="onBuildingTypeChange()">
+            <option selected>Building Type</option>
+            <option value="commercial">Commercial</option>
+            <option value="residential">Residential</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="staySelect" class="form-label">Stay</label>
+          <select class="form-select" id="staySelect" [(ngModel)]="selectedCity">
+            <option selected>Stay</option>
+            <option *ngFor="let stay of stays">{{ stay }}</option>
+          </select>
+        </div>
+
+        <div class="col" *ngIf="isResidential">
+          <label for="priceRange" class="form-label">Price Range</label>
+          <input type="range" class="form-range" id="priceRange" [(ngModel)]="priceRange" min="0" max="1000" step="10">
+          <div class="range-label">{{ priceRange }} USD</div>
+        </div>
+        <div class="col" *ngIf="isResidential">
+          <label for="bhkSelect" class="form-label">BHK</label>
+          <select class="form-select" id="bhkSelect" [(ngModel)]="selectedBHK">
+            <option selected>BHK</option>
+            <option *ngFor="let bhk of bhkOptions">{{ bhk }}</option>
+          </select>
+        </div>
+      </div>
+  
+      <div class="row justify-content-center align-items-center g-2">
+        <div class="col">
+          <label for="fromDate" class="form-label">From Date</label>
+          <input type="date" class="form-control" id="fromDate" [(ngModel)]="fromDate">
+        </div>
+        <div class="col">
+          <label for="toDate" class="form-label">To Date</label>
+          <input type="date" class="form-control" id="toDate" [(ngModel)]="toDate">
+        </div>
+      </div>
+      <button class="btn btn-primary mt-3" (click)="search()">Search</button>
+    </div>
+  </section>
+   -->
+
+
+
+   <div class="container-fluid py-5">
+    <h2 class="text-center mb-4">Accommodation Booking</h2>
+  
+    <!-- Nav Tabs for Room and Rental Booking -->
+    <ul class="nav nav-tabs mb-4" id="bookingTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="room-tab" data-bs-toggle="tab" data-bs-target="#room" type="button" role="tab" aria-controls="room" aria-selected="true"> <i class="bi bi-building" style="font-size: 28px;"></i><div>Room Booking</div></a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" id="rental-tab" data-bs-toggle="tab" data-bs-target="#rental" type="button" role="tab" aria-controls="rental" aria-selected="false"><i class="bi bi-house-door" style="font-size: 28px;"></i><div>Rental Booking</div></a>
+      </li>
+    </ul>
+  
+    <!-- Tab Content -->
+    <div class="tab-content" id="bookingTabsContent">
+      <!-- Room Booking Tab -->
+      <div class="tab-pane fade show active" id="room" role="tabpanel" aria-labelledby="room-tab">
+        <form (ngSubmit)="onSubmitRoomBooking()" class="row g-3">
+          <div class="col-md-3">
+            <label for="place" class="form-label">Place</label>
+            <input type="text" class="form-control" id="place" placeholder="Enter place" required>
+          </div>
+          <div class="col-md-3">
+            <label for="daterange" class="form-label">Date Range</label>
+            <input type="text" class="form-control" id="daterange" placeholder="Select date range" required>
+          </div>
+          <div class="col-md-3">
+            <label for="guests" class="form-label">Guests</label>
+            <input type="number" class="form-control" id="guests" min="1" placeholder="Number of guests" required>
+          </div>
+          <div class="col-md-3">
+            <label for="price" class="form-label">Price Range</label>
+            <input type="number" class="form-control" id="price" min="0" placeholder="Enter max price" required>
+          </div>
+          <!-- Progress Indicator -->
+          <!-- <div class="col-md-12 mt-3">
+            <p class="text-muted">Step 1 of 2: Room Booking Details</p>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div> -->
+          <div class="col-md-12 text-center mt-4">
+            <button type="submit" class="btn btn-primary">Search Rooms</button>
+            <button type="reset" class="btn btn-secondary">Clear</button>
+          </div>
+        </form>
+      </div>
+  
+      <!-- Rental Booking Tab -->
+      <div class="tab-pane fade" id="rental" role="tabpanel" aria-labelledby="rental-tab">
+        <form (ngSubmit)="onSubmitRentalBooking()" class="row g-3">
+          <div class="col-md-12">
+            <label class="form-label">Rental Type</label>
+            <div class="d-flex">
+              <div class="form-check me-3">
+                <input class="form-check-input" type="radio" name="rentalType" id="fullHouse" checked>
+                <label class="form-check-label" for="fullHouse">Full House</label>
+              </div>
+              <div class="form-check me-3">
+                <input class="form-check-input" type="radio" name="rentalType" id="pgHostel">
+                <label class="form-check-label" for="pgHostel">PG/Hostel</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="rentalType" id="flatmate">
+                <label class="form-check-label" for="flatmate">Flatmate</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="rentalPlace" class="form-label">Place</label>
+            <input type="text" class="form-control" id="rentalPlace" placeholder="Enter place" required>
+          </div>
+          <div class="col-md-4">
+            <label for="bhk" class="form-label">BHK</label>
+            <input type="text" class="form-control" id="bhk" placeholder="Enter BHK" required>
+          </div>
+          <div class="col-md-4">
+            <label for="availability" class="form-label">Availability</label>
+            <select class="form-select" id="availability" required>
+              <option value="15">Within 15 Days</option>
+              <option value="30">Within 30 Days</option>
+              <option value="60">Within 60 Days</option>
+            </select>
+          </div>
+          <!-- <div class="col-md-12 mt-3">
+            <p class="text-muted">Step 2 of 2: Rental Booking Details</p>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div> -->
+          <div class="col-md-12 text-center mt-4">
+            <button type="submit" class="btn btn-primary">Search Rentals</button>
+            <button type="reset" class="btn btn-secondary">Clear</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

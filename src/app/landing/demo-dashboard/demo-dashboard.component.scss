@@ -1,0 +1,789 @@
+@import "~ag-grid-community/styles/ag-grid.css";
+@import "~ag-grid-community/styles/ag-theme-alpine.css";
+
+/* Adjusting the nav-link font size */
+.nav-link {
+    font-size: 16px;
+    color: white; /* Keeps the text white */
+  }
+  
+  /* Additional styles for user details */
+  .user-name {
+    font-weight: bold;
+    color: white;
+  }
+  
+  .user-role {
+    font-size: 0.85rem;
+    color: #B0BEC5; /* Lighter color for role */
+  }
+  
+  /* Main content */
+  .dashboard-content {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .dashboard-content h1 {
+    color: #3D52A0;
+  }
+  
+
+
+
+
+
+
+/* General Styling for the Grid */
+.ag-theme-alpine {
+    font-family: 'Arial', sans-serif; /* Changed to a clean font */
+    background-color: #ffffff; /* White background for a clean look */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
+  }
+  
+  /* Header Row Styling */
+  .ag-header-cell {
+    background-color: #007bff; /* Blue header */
+    color: white; /* White text */
+    font-weight: bold; /* Bold font */
+    text-align: center; /* Center alignment */
+    border-bottom: 3px solid #0056b3; /* Darker blue bottom border */
+    padding: 12px; /* Increased padding for better spacing */
+  }
+  
+  /* Row Styling */
+  .ag-row {
+    transition: background-color 0.3s ease; /* Smooth transition */
+  }
+  
+  .ag-row:hover {
+    background-color: #f0f8ff; /* Light blue hover effect */
+  }
+  
+  /* Cell Text */
+  .ag-cell {
+    padding: 50px !important; /* More padding for comfort */
+    text-align: center; /* Center alignment */
+  }
+  
+  /* Status Dropdown Styling */
+  .status-dropdown {
+    width: 100%; /* Full width */
+    padding: 8px; /* Padding for comfort */
+    border: 1px solid #ced4da; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #ffffff; /* White background */
+    color: #495057; /* Dark text color */
+    font-size: 14px; /* Standard font size */
+    transition: border-color 0.3s ease; /* Smooth border color transition */
+  }
+  
+  .status-dropdown:hover, .status-dropdown:focus {
+    border-color: #007bff; /* Change border color on hover/focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25); /* Subtle shadow effect */
+  }
+  
+  /* Download Icon Styling */
+  .bi-download {
+    font-size: 24px; /* Slightly larger icon */
+    color: #007bff; /* Blue color */
+    transition: color 0.3s ease; /* Smooth color transition */
+  }
+  
+  .bi-download:hover {
+    color: #0056b3; /* Darker blue on hover */
+    cursor: pointer; /* Pointer cursor to indicate clickability */
+  }
+  
+  /* Optional Responsive Styles */
+  @media screen and (max-width: 768px) {
+    .ag-header-cell-label, .ag-cell {
+      font-size: 14px; /* Adjusted for smaller screens */
+      padding: 8px; /* Adjusted padding */
+    }
+  }
+  
+
+
+
+
+  
+  .verification-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+  
+  .verification-step {
+    position: relative;
+    width: 22%;
+  }
+  
+  .circle-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid #007bff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  
+  .circle-icon i {
+    font-size: 24px;
+    color: #007bff;
+  }
+  
+  .verification-name {
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 17px;
+  }
+  
+  .connecting-line {
+    height: 2px;
+    background-color: #007bff;
+    width: 100px;
+    position: relative;
+    bottom: 80px;
+  }
+  
+  .verification-box {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .verfication-section{
+    margin-bottom: 3rem;
+  }
+
+
+  .stepper-step {
+    position: relative;
+    width: 116%;
+  }
+  
+  .icon-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid #007bff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    font-size: 24px;
+    color: #007bff;
+    transition: all 0.3s ease;
+  }
+  
+  .icon-circle.selected {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .stepper-label {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .stepper-box {
+    margin-top: 27px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  }
+  
+  .stepper-connector {
+    text-align: center;
+    position: relative;
+  }
+  
+  .stepper-connector .line {
+    height: 2px;
+    background-color: #007bff;
+    width: 157px;
+    position: absolute;
+    left: 35px;
+    bottom: 16px;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+/* General styling */
+.Accommodation {
+  // background-color: #f9f9f9;
+  border-radius: 10px;
+  // box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.Accommodation-container {
+  max-width: 900px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  border-radius: 10px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.form-label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+/* Border-bottom only for form controls */
+.form-control, 
+.form-select, 
+input[type="search"], 
+input[type="date"], 
+input[type="range"] {
+  border: none; /* Remove full border */
+  border-bottom: 2px solid #ccc; /* Add border-bottom */
+  border-radius: 0; /* Remove rounded corners */
+  transition: border-color 0.3s ease;
+}
+
+/* Border color change on focus */
+.form-control:focus, 
+.form-select:focus, 
+input[type="search"]:focus, 
+input[type="date"]:focus, 
+input[type="range"]:focus {
+  outline: none; /* Remove the blue outline */
+  border-bottom: 2px solid #007bff; /* Change bottom border on focus */
+  box-shadow: none;
+}
+
+/* Additional styling for form elements */
+.input-group {
+  margin-bottom: 1rem;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.row {
+  margin-bottom: 1rem;
+}
+
+.range-label {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .Accommodation {
+      padding: 1rem;
+  }
+  
+  .col-lg-4, .col-lg-8 {
+      margin-bottom: 1rem;
+  }
+}
+
+
+
+// travel
+
+
+
+
+/* General styling for travel section */
+/* General styling for the travel section */
+.Travel {
+  background-color: #f5f7fa; /* Light background */
+  padding: 2.5rem; /* Padding for the section */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  max-width: 900px; /* Max width for the container */
+  margin: auto; /* Centering the container */
+  margin-bottom: 5rem; /* Space below the section */
+}
+
+/* Tabs styling */
+.nav-tabs .nav-link {
+  font-weight: 600; /* Bold font for tabs */
+  color: #6c757d; /* Grey color for inactive tabs */
+  transition: color 0.3s, background-color 0.3s, border-radius 0.3s; /* Smooth transition */
+  border-radius: 11px; /* Rounded corners for tabs */
+}
+
+.nav-tabs .nav-link.active {
+  color: #000000; /* Black color for active tab */
+  background-color: #ebebeb; /* Light background for active tab */
+  border-radius: 11px; /* Keep rounded corners */
+  box-shadow: 0 5px 15px rgba(167, 167, 167, 0.5); /* Shadow for active tab */
+}
+
+/* Styling for the travel form */
+.travel-form {
+  gap: 1rem; /* Space between form elements */
+}
+
+/* Styling for input fields */
+.travel-form .form-control {
+  border: none; /* No border */
+  border-bottom: 2px solid #ccc; /* Bottom border */
+  height: 55px; /* Increased height for inputs */
+  font-size: 1.1rem; /* Slightly larger font size */
+  border-radius: 0; /* No border radius */
+  transition: border-color 0.3s ease; /* Transition for border color */
+  padding: 0 1rem; /* Padding inside inputs */
+  background-color: #fff; /* White background */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05); /* Light shadow */
+}
+
+.travel-form .form-control::placeholder {
+  font-weight: 400; /* Normal weight for placeholder */
+  color: #888; /* Grey color for placeholder */
+}
+
+.travel-form .form-control:focus {
+  outline: none; /* No outline on focus */
+  border-bottom: 2px solid #007bff; /* Blue bottom border on focus */
+  background-color: #f1f1f1; /* Light grey background on focus */
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
+}
+
+/* Styling for search button */
+.travel-form .btn-primary {
+  height: 55px; /* Height for button */
+  font-size: 1.1rem; /* Font size for button */
+  padding: 0 1.5rem; /* Padding for button */
+  background-color: #007bff; /* Blue background */
+  border: none; /* No border */
+  border-radius: 30px; /* Rounded corners */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3); /* Light shadow */
+}
+
+.travel-form .btn-primary:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  box-shadow: 0 8px 20px rgba(0, 86, 179, 0.3); /* Darker shadow on hover */
+}
+
+/* Responsive behavior for smaller screens */
+@media (max-width: 768px) {
+  .travel-form {
+    flex-direction: column; /* Stack inputs vertically */
+    align-items: stretch; /* Stretch inputs to full width */
+  }
+
+  .travel-form .btn-primary {
+    width: 100%; /* Full width for button on small screens */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+// /* General styling for the travel section */
+// .Travel {
+//   background-color: #f5f7fa;
+//   padding: 2.5rem;
+//   border-radius: 15px;
+//   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+//   max-width: 900px;
+//   margin: auto;
+//   margin-bottom: 5rem;
+// }
+
+// /* Tabs styling */
+// .nav-tabs .nav-link {
+//   font-weight: 600;
+//   color: #6c757d;
+//   transition: color 0.3s, background-color 0.3s, border-radius 0.3s;
+//   border-radius: 11px;
+// }
+
+// .nav-tabs .nav-link.active {
+//   color: #000000;
+//   background-color: #ebebeb;
+//   border-radius: 11px;
+//   box-shadow: 0 5px 15px rgb(167 167 167 / 50%)
+// }
+
+// // .nav-tabs .nav-link:hover {
+// //   color: #0056b3;
+// // }
+
+// /* Styling for the travel form */
+// .travel-form {
+//   gap: 1rem;
+// }
+
+// .travel-form .form-control {
+//   border: none;
+//   border-bottom: 2px solid #ccc;
+//   height: 55px; /* Increased height */
+//   font-size: 1.1rem;
+//   border-radius: 0;
+//   transition: border-color 0.3s ease;
+//   padding: 0 1rem;
+//   background-color: #fff;
+//   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+// }
+
+// .travel-form .form-control::placeholder {
+//   font-weight: 400;
+//   color: #888;
+// }
+
+// .travel-form .form-control:focus {
+//   outline: none;
+//   border-bottom: 2px solid #007bff;
+//   background-color: #f1f1f1;
+//   transition: background-color 0.3s ease, border-color 0.3s ease;
+// }
+
+// .travel-form .btn-primary {
+//   height: 55px;
+//   font-size: 1.1rem;
+//   padding: 0 1.5rem;
+//   background-color: #007bff;
+//   border: none;
+//   border-radius: 30px;
+//   transition: background-color 0.3s ease, box-shadow 0.3s ease;
+//   box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+// }
+
+// .travel-form .btn-primary:hover {
+//   background-color: #0056b3;
+//   box-shadow: 0 8px 20px rgba(0, 86, 179, 0.3);
+// }
+
+
+
+// /* Responsive behavior for smaller screens */
+// @media (max-width: 768px) {
+//   .travel-form {
+//       flex-direction: column;
+//       align-items: stretch;
+//   }
+
+//   .travel-form .btn-primary {
+//       width: 100%;
+//   }
+// }
+
+
+// logsitc 
+
+/* General styling for logistics section */
+.Logistics {
+  background-color: #f5f7fa;
+  padding: 2.5rem;
+  border-radius: 15px;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Box shadow for the container */
+.logistics-box {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Remove borders from tabs */
+.nav-tabs {
+  border-bottom: none;
+}
+
+/* Tabs icons with background color */
+.tab-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  border-radius: 50%;
+  margin-right: 10px;
+  font-size: 1.25rem;
+}
+
+/* Active and default tab styles */
+.nav-tabs .nav-link {
+  font-weight: 600;
+  color: #6c757d;
+  transition: color 0.3s, background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-tabs .nav-link.active {
+  color: #007bff;
+  background-color: transparent;
+}
+
+/* Select City dropdown with image and name */
+.city-select {
+  height: 55px;
+  border-bottom: 2px solid #ccc;
+  border-radius: 0;
+  font-size: 1.1rem;
+}
+
+.city-select option {
+  display: flex;
+  align-items: center;
+}
+
+.city-select option img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+/* Styling for the logistics form */
+.logistics-form {
+  gap: 1rem;
+}
+
+.logistics-form .form-control {
+  border: none;
+  border-bottom: 2px solid #ccc;
+  height: 55px; /* Increased height */
+  font-size: 1.1rem;
+  border-radius: 0;
+  transition: border-color 0.3s ease;
+  padding: 0 1rem;
+  background-color: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.logistics-form .form-control:focus {
+  outline: none;
+  border-bottom: 2px solid #007bff;
+  background-color: #f1f1f1;
+}
+
+.logistics-form .btn-primary {
+  height: 55px;
+  font-size: 1.1rem;
+  padding: 0 1.5rem;
+  background-color: #007bff;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+}
+
+.logistics-form .btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .logistics-form {
+      flex-direction: column;
+      align-items: stretch;
+  }
+
+  .logistics-form .btn-primary {
+      width: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.primary-text {
+  color: #fff;
+}
+
+.second-text {
+  color: #fff;
+  font-size: 16px;
+}
+
+.primary-bg {
+  background-color: var(--main-bg-color);
+}
+
+.secondary-bg {
+  background-color: var(--second-bg-color);
+}
+
+.rounded-full {
+  border-radius: 100%;
+}
+
+// #wrapper {
+//   overflow-x: hidden;
+//   background-image: linear-gradient(to right, #baf3d7, #c2f5de, #cbf7e4, #d4f8ea, #ddfaef);
+// }
+.navbar-dashboard{
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 0px 2px;
+}
+.logoname{
+  text-decoration: none;
+  font-size: 26px;
+  font-weight: 500;
+  color: #000000;
+}
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+  -webkit-transition: margin 0.25s ease-out;
+  -moz-transition: margin 0.25s ease-out;
+  -o-transition: margin 0.25s ease-out;
+  transition: margin 0.25s ease-out;
+  background-color: #184063;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0rem;
+  font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+
+#sidebar-wrapper .icon-large{
+  font-size: 6rem;
+  color: #fff;
+}
+
+.dashboard-icons{
+  font-size: 21px;
+  color: #000000;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+  background-color: whitesmoke; 
+  // background: steelblue;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+#menu-toggle {
+  cursor: pointer;
+}
+
+.list-group-item {
+  border: none;
+  padding: 20px 30px;
+  cursor: pointer;
+}
+
+.list-group-item.active {
+  background-color: transparent;
+  color: var(--main-text-color);
+  font-weight: bold;
+  border: none;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+}
+
+.navbar-toggler {
+  border-color: var(--second-text-color);
+}

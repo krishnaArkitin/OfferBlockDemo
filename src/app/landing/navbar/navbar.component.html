@@ -1,0 +1,33 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top header-nav" [ngClass]="{ 'scrolled': isScrolled }">
+    <div class="container">
+      
+      <!-- Logo aligned to the left -->
+      <a class="navbar-brand" href="#">OfferBlock</a>
+
+      <!-- Navbar Toggler (For Mobile View) -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Centered Navigation Links and Right Aligned Login/SignUp -->
+      <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+
+        <!-- Centered Navigation Links -->
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link" href="#">What We Do </a></li>
+          <li class="nav-item"><a class="nav-link" href="#">What we Offer</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Solutions</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+        </ul>
+
+        <!-- Login and Sign-up Buttons aligned to the right -->
+        <div class="ml-auto">
+          <a routerLink="/landing/login" class="button-nav">Login</a>
+          <a routerLink="/landing/signup" class="button-nav">Sign Up</a>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>

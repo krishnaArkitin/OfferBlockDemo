@@ -1,0 +1,109 @@
+  
+  .verification-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+  
+  .verification-step {
+    position: relative;
+    width: 22%;
+  }
+  
+  .circle-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid #007bff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  
+  .circle-icon i {
+    font-size: 24px;
+    color: #007bff;
+  }
+  
+  .verification-name {
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 17px;
+  }
+  
+  .connecting-line {
+    height: 2px;
+    background-color: #007bff;
+    width: 100px;
+    position: relative;
+    bottom: 80px;
+  }
+  
+  .verification-box {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+
+  .verification-form {
+    background-color: #f9f9f9; /* Light background for the form section */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-section {
+    margin-bottom: 20px; /* Space between form sections */
+  }
+  
+  .form-heading {
+    font-size: 20px;
+    color: #007bff; /* Primary color for headings */
+    margin-bottom: 15px; /* Space below heading */
+  }
+  
+  .form-control {
+    border-radius: 5px; /* Rounded corners for inputs */
+    border: 1px solid #ccc;
+    padding: 12px; /* Padding for inputs */
+    transition: border-color 0.3s; /* Transition for focus effect */
+  }
+  
+  .form-control:focus {
+    border-color: #007bff; /* Highlight border color on focus */
+    outline: none; /* Remove default outline */
+  }
+  
+  .btn-success {
+    background-color: #28a745; /* Success button color */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s; /* Transition for button */
+  }
+  
+  .btn-success:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly increase button size on hover */
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .verification-form {
+      padding: 15px; /* Less padding on smaller screens */
+    }
+  
+    .form-heading {
+      font-size: 18px; /* Smaller heading size */
+    }
+  }
+  

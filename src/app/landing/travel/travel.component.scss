@@ -1,0 +1,184 @@
+// .logistics-box {
+//     border-radius: 8px;
+//     background-color: #f8f9fa;
+//     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+//     transition: transform 0.3s, box-shadow 0.3s;
+//   }
+
+//   .tab-icon {
+//     font-size: 1.5rem;
+//     margin-right: 5px;
+//   }
+//   .nav-link {
+//     font-weight: bold;
+//     transition: background-color 0.3s, color 0.3s;
+//   }
+//   .nav-link.active {
+//     background-color: #007bff;
+//     color: white;
+//   }
+  
+//   .btn-primary, .btn-warning, .btn-success {
+//     transition: background-color 0.3s, box-shadow 0.3s;
+//   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.nav-tab-box {
+  border-radius: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 600px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
+  top: 43px;
+  z-index: 9;
+}
+
+#travelTab{
+  --bs-nav-tabs-border-width: (none !important);
+  justify-content: space-around !important;
+}
+
+.in-border{
+  border: 1px solid #ccc;
+  width: 100%;
+  height: 8rem;
+  padding: 10px;
+}
+
+input, select {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.full-width {
+  width: 100%;
+  border: none; /* Optional: To remove default border */
+  outline: none; /* Optional: To remove focus outline */
+}
+
+.input-box {
+  border: 2px solid white !important; /* White border for input boxes */
+  border-radius: 5px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.input-box:hover {
+  border-color: #007bff; /* Change border color on hover */
+}
+
+.swap-button{
+  position: relative;
+  bottom: 6.5rem;
+  left: 7.7rem;
+  border-radius: 100%;
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ccc;
+}
+
+.dropdown-content {
+  display: none; /* Hidden by default */
+  position: absolute; /* Positioned relative to the nearest positioned ancestor */
+  background-color: #fff; /* White background */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border-radius: 8px; /* Rounded corners */
+  z-index: 10; /* Stacking order */
+  margin-top: 4px; /* Space between input and dropdown */
+  transition: all 0.2s ease-in-out; /* Smooth transition */
+  width: 77%;
+}
+
+.dropdown-content ul {
+  list-style: none; /* Remove default list styling */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+.dropdown-content li {
+  padding: 10px 15px; /* Add padding for better clickability */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.2s ease; /* Smooth background transition */
+}
+
+.dropdown-content li:hover {
+  background-color: #f1f1f1; /* Light gray background on hover */
+  color: #333; /* Darker text color on hover */
+}
+
+.dropdown-content li.selected {
+  background-color: #007bff; /* Highlight the selected item */
+  color: #fff; /* White text for selected item */
+}
+
+.input-box:hover .dropdown-content {
+  display: block; /* Show dropdown on hover */
+}
+
+.content-box {
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.form-group {
+  // margin-bottom: 15px;
+  margin-top: 1.5rem; 
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+.icon{
+  padding-left: 10px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+span {
+  font-size: 30px;
+}
+
+#timepicker,#datepicker{
+  font-size: 30px;
+}
+
+
+
+.tab-box{
+  border: 1px solid #ccc;
+  border-right: 0px;
+  padding: 20px;
+  height: 9rem;
+}
+.tab-box1{
+  border: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  padding: 20px;
+  height: 9rem;
+}

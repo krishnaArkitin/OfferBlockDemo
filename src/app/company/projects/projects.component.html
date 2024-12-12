@@ -1,0 +1,125 @@
+<!-- <div class="projects-container">
+    <ag-grid-angular
+      style="width: 100%; height: 400px;"
+      class="ag-theme-alpine"
+      [rowData]="rowData"
+      [columnDefs]="columnDefs"
+      [gridOptions]="gridOptions"
+      (rowClicked)="onProjectSelected($event)">
+    </ag-grid-angular>
+  
+    <div *ngIf="selectedProject" class="project-details mt-4 p-4">
+      <button (click)="closeProjectDetails()" class="btn btn-secondary mb-3"><i class="bi bi-x-lg"></i></button>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <h5>Project Name: {{ selectedProject?.projectName }}</h5>
+          <p><strong>Department:</strong> {{ selectedProject?.department }}</p>
+          <p><strong>Recruiter Assigned:</strong> {{ selectedProject?.recruiterAssigned }}</p>
+        </div>
+        <div class="col-md-6">
+          <p><strong>Vacancies:</strong> {{ selectedProject?.vacancies }}</p>
+          <p><strong>Offers:</strong> {{ selectedProject?.offers }}</p>
+          <p><strong>Hirings:</strong> {{ selectedProject?.hirings }}</p>
+          <p><strong>Status:</strong> {{ selectedProject?.status }}</p>
+        </div>
+      </div>
+      
+      <div class="row mt-3">
+        <div class="col-6 mb-3" *ngFor="let detail of selectedProject?.details">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{ detail.title }}</h5>
+              <p class="card-text">{{ detail.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   -->
+
+
+
+
+   <!-- Projects Container -->
+<div class="projects-container">
+  
+  <!-- Button to Open the Create Project Modal -->
+  <button (click)="openCreateProjectModal()" class="btn btn-primary mb-3">Create a Project</button>
+
+  <!-- ag-Grid Table -->
+  <ag-grid-angular
+    style="width: 100%; height: 400px;"
+    class="ag-theme-alpine"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    [gridOptions]="gridOptions"
+    (rowClicked)="onProjectSelected($event)">
+  </ag-grid-angular>
+
+  <!-- Project Details Section -->
+  <div *ngIf="selectedProject" class="project-details mt-4 p-4">
+    <button (click)="closeProjectDetails()" class="btn btn-secondary mb-3"><i class="bi bi-x-lg"></i></button>
+    
+    <div class="row">
+      <div class="col-md-6">
+        <h5>Project Name: {{ selectedProject?.projectName }}</h5>
+        <p><strong>Department:</strong> {{ selectedProject?.department }}</p>
+        <p><strong>Recruiter Assigned:</strong> {{ selectedProject?.recruiterAssigned }}</p>
+      </div>
+      <div class="col-md-6">
+        <p><strong>Vacancies:</strong> {{ selectedProject?.vacancies }}</p>
+        <p><strong>Offers:</strong> {{ selectedProject?.offers }}</p>
+        <p><strong>Hirings:</strong> {{ selectedProject?.hirings }}</p>
+        <p><strong>Status:</strong> {{ selectedProject?.status }}</p>
+      </div>
+    </div>
+    
+    <div class="row mt-3">
+      <div class="col-6 mb-3" *ngFor="let detail of selectedProject?.details">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ detail.title }}</h5>
+            <p class="card-text">{{ detail.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Create Project Modal -->
+  <div #createProjectModal class="modal fade" tabindex="-1" role="dialog" aria-labelledby="createProjectModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="createProjectModalLabel">Create a Project</h5>
+          <button type="button" class="close" (click)="closeCreateProjectModal()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="onSubmitCreateProject()">
+            <div class="form-group">
+              <label for="projectName">Project Name</label>
+              <input type="text" id="projectName" class="form-control" [(ngModel)]="newProject.projectName" name="projectName" required>
+            </div>
+            <div class="form-group">
+              <label for="department">Department</label>
+              <input type="text" id="department" class="form-control" [(ngModel)]="newProject.department" name="department" required>
+            </div>
+            <div class="form-group">
+              <label for="recruiterAssigned">Recruiter Assigned (HR)</label>
+              <input type="text" id="recruiterAssigned" class="form-control" [(ngModel)]="newProject.recruiterAssigned" name="recruiterAssigned" required>
+            </div>
+            <div class="form-group">
+              <label for="vacancies">Vacancies</label>
+              <input type="number" id="vacancies" class="form-control" [(ngModel)]="newProject.vacancies" name="vacancies" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

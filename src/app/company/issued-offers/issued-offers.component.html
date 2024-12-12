@@ -1,0 +1,133 @@
+<div class="container-fluid issued-offers">
+  <h3 class="mb-4 text-center">Issued Offers</h3>
+
+  <!-- Table view for desktop -->
+  <ag-grid-angular
+    *ngIf="!isMobileView"
+    class="ag-theme-alpine"
+    style="width: 100%; height: 400px;"
+    [gridOptions]="gridOptions"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    rowSelection="single"
+    [pagination]="true"
+    [paginationPageSize]="10"
+    floatingFilter="true">
+  </ag-grid-angular>
+
+  <!-- Card view for mobile -->
+  <div *ngIf="isMobileView" class="card-view">
+    <div *ngFor="let candidate of rowData" class="candidate-card mb-3" (click)="showCandidateDetails(candidate)">
+      <div class="card">
+        <img [src]="candidate.imageUrl" class="card-img-top candidate-image-mobile" alt="Candidate Image">
+        <div class="card-body">
+          <h5 class="card-title">{{ candidate.name }}</h5>
+          <p class="card-text"><strong>Position:</strong> {{ candidate.position }}</p>
+          <p class="card-text"><strong>Offer Status:</strong>
+            <span [ngClass]="{
+              'status-pending': candidate.offerStatus === 'Pending',
+              'status-accepted': candidate.offerStatus === 'Accepted',
+              'status-declined': candidate.offerStatus === 'Declined'
+            }">{{ candidate.offerStatus | titlecase }}</span>
+          </p>
+          <p class="card-text"><strong>Verification Status:</strong>
+            {{ candidate.verificationStatus | titlecase }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+<!-- Candidate Details Section for both mobile and desktop views -->
+<div *ngIf="showCandidateProfile" class="candidate-details mt-4 p-4">
+  <button (click)="closeProfile()" class="btn btn-secondary mb-3"><i class="bi bi-x-lg"></i></button>
+
+  <!-- Row Layout -->
+  <div class="row">
+    <!-- Left Column for Image and Name -->
+    <div class="col-md-4 text-center">
+      <img [src]="selectedCandidate?.imageUrl" alt="Candidate Image" class="candidate-image-large mb-3"/>
+      <h5 class="candidate-name">{{ selectedCandidate?.name }}</h5>
+      <p><strong>ID:</strong> {{ selectedCandidate?.offerBlockId }}</p>
+    </div>
+
+    <!-- Right Column for Details in a two-column grid -->
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-4">
+          <p><strong>Position:</strong></p>
+          <p>{{ selectedCandidate?.position }}</p>
+
+          <p><strong>Offer Status:</strong></p>
+          <p>
+            <span [ngClass]="{
+                'badge bg-warning': selectedCandidate?.offerStatus === 'Pending',
+                'badge bg-success': selectedCandidate?.offerStatus === 'Accepted',
+                'badge bg-danger': selectedCandidate?.offerStatus === 'Declined'
+            }">{{ selectedCandidate?.offerStatus | titlecase }}</span>
+          </p>
+        </div>
+
+        <div class="col-4">
+          <p><strong>Issued On:</strong></p>
+          <p>{{ selectedCandidate?.issuedOn }}</p>
+
+          <p><strong>Verification Status:</strong></p>
+          <p>
+            <span [ngClass]="{
+                'badge bg-success': selectedCandidate?.verificationStatus === 'completed',
+                'badge bg-danger': selectedCandidate?.verificationStatus === 'incomplete'
+            }">{{ selectedCandidate?.verificationStatus | titlecase }}</span>
+          </p>
+        </div>
+
+        <div class="col-4">
+          <p><strong>Deadline:</strong></p>
+          <p>{{ selectedCandidate?.deadline }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Verification Cards -->
+  <div class="row mt-4">
+    <div class="col-6 mb-3" *ngFor="let verification of selectedCandidate?.verificationSteps">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ verification.name }}</h5>
+          <p class="card-text">
+            <span *ngIf="verification.status === 'pending'" class="text-muted">Verification Pending</span>
+            <span *ngIf="verification.status === 'in_progress'" class="text-warning">Verification In Progress</span>
+            <span *ngIf="verification.status === 'completed'" class="text-success">Verification Completed</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social Verification Card (col-12) -->
+    <div class="col-12 mt-3" *ngIf="selectedCandidate?.socialLinks">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Social Verification</h5>
+          <ul class="card-ul">
+            <li class="px-5" *ngFor="let link of selectedCandidate?.socialLinks">
+              <strong>{{ link.name }}:</strong> <br> <a [href]="link.url" target="_blank">{{ link.url }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>
+
+
+
+
+
+
+</div>

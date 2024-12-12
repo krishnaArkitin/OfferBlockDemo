@@ -1,0 +1,186 @@
+/* General styles for recruiter container */
+.recruiters-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styles for Create Recruiter button */
+  .btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  /* ag-Grid styles */
+  .ag-theme-alpine {
+    height: 400px;
+    border-radius: 8px;
+    border: none;
+  }
+  
+  .ag-theme-alpine .ag-header-cell {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .ag-theme-alpine .ag-row:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Recruiter details section */
+  .recruiter-details {
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  .recruiter-details button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .recruiter-details button:hover {
+    background-color: #d32f2f;
+  }
+  
+  .recruiter-details h5 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .recruiter-details p {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .recruiter-details .row {
+    margin-top: 20px;
+  }
+  
+  .recruiter-details .card {
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #fafafa;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  }
+  
+  .recruiter-details .card-title {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .recruiter-details .card-body {
+    padding: 10px;
+  }
+  
+  .recruiter-details .card-body p {
+    font-size: 14px;
+    color: #555;
+    margin: 5px 0;
+  }
+  
+  /* Modal styles */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .modal-dialog {
+    background-color: #fff;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .modal-header .btn-close {
+    // background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .modal-header h5 {
+    margin: 0;
+    color: #007bff;
+  }
+  
+  .modal-body form {
+    display: grid;
+    gap: 20px;
+  }
+  
+  .modal-body form .form-label {
+    font-weight: bold;
+  }
+  
+  .modal-body form .form-control {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .modal-body form .form-control:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .modal-body form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .modal-body form button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Styles for modal when active */
+  .modal.show {
+    display: flex;
+  }
+  
+  

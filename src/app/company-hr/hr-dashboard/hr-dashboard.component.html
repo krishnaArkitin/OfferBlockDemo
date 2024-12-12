@@ -1,0 +1,65 @@
+<div class="d-flex" id="wrapper" [class.toggled]="isToggled">
+    <!-- Left Sidebar -->
+    <div class="bg-sidebar" id="sidebar-wrapper">
+      <div class="sidebar-heading text-center">
+        <i class="bi bi-person-circle icon-large"></i> 
+        <div>
+          <span class="fs-4 fw-bold primary-text">ABC PVT LTD</span>
+          <p class="mt-2 second-text">HR</p>
+          <p class="mt-2 second-text">OB240025</p>
+        </div>
+      </div>
+      <div class="list-group list-group-flush my-3">
+        <a (click)="setActiveComponent('issueoffers')" class="list-group-item list-group-item-action bg-transparent second-text">
+          <i class="bi bi-file-text me-3"></i> Issue Offers
+        </a>
+        <a (click)="setActiveComponent('issuedoffers')" class="list-group-item list-group-item-action bg-transparent second-text">
+          <i class="bi bi-check-circle me-3"></i> Issued Offers
+        </a>
+        <a (click)="setActiveComponent('project')" class="list-group-item list-group-item-action bg-transparent second-text">
+          <i class="bi bi-folder me-3"></i> Projects
+        </a>
+      </div>
+    </div>
+  
+    <!-- Main Content Wrapper -->
+    <div id="page-content-wrapper">
+      <!-- Top Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-dashboard fixed-top">
+        <div class="d-flex align-items-center">
+          <!-- <i class="bi bi-list fs-4 me-3 dashboard-icons" id="menu-toggle" (click)="toggleSidebar()"></i> -->
+          <a href="" class="logoname"><span>OfferBlock</span></a>
+        </div>
+  
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li>
+              <a class="nav-link fw-bold" href="#"><i class="bi bi-bell me-2 dashboard-icons"></i></a>
+            </li>
+            <li>
+              <a class="nav-link fw-bold" href="#"><i class="bi bi-envelope me-2 dashboard-icons"></i></a>
+            </li>
+            <li>
+              <a class="nav-link fw-bold" href="#"><i class="bi bi-gear me-2 dashboard-icons"></i></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  
+      <!-- Content Area -->
+      <div class="container-fluid px-4" id="content">
+        <ng-container [ngSwitch]="activeComponent">
+          <!-- <app-issue-offers *ngSwitchCase="'issueoffers'"></app-issue-offers>
+          <app-issued-offers *ngSwitchCase="'issuedoffers'"></app-issued-offers>
+          <app-projects *ngSwitchCase="'project'"></app-projects>
+          <app-recruiters *ngSwitchCase="'recruiter'"></app-recruiters> -->
+          <div *ngSwitchDefault>Select an option from the sidebar</div>
+        </ng-container>
+      </div>
+    </div>
+  </div>

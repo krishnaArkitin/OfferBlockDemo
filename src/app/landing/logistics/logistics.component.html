@@ -1,0 +1,264 @@
+<!-- <section class="Logistics py-5">
+    <h2 class="text-center mb-4">Book Your Logistics</h2>
+    <div class="container">
+      <div class="logistics-box shadow-lg p-4 mb-5 bg-light rounded">
+
+        <div class="row align-items-center mb-3">
+          <div class="col-lg-4">
+            <label for="selectCity" class="form-label">Select City</label>
+            <select id="selectCity" class="form-select city-select">
+              <option selected>Select City</option>
+              <option value="1">City 1</option>
+              <option value="2">City 2</option>
+              <option value="3">City 3</option>
+            </select>
+          </div>
+        </div>
+  
+
+        <ul class="nav nav-tabs justify-content-around mb-4" id="logisticsTabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="truck-tab" data-bs-toggle="tab" data-bs-target="#truck" type="button" role="tab" aria-controls="truck" aria-selected="true">
+              <span class="tab-icon bg-primary text-white p-2 rounded-circle"><i class="bi bi-truck"></i></span> Truck
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="package-tab" data-bs-toggle="tab" data-bs-target="#package" type="button" role="tab" aria-controls="package" aria-selected="false">
+              <span class="tab-icon bg-warning text-white p-2 rounded-circle"><i class="bi bi-box-seam"></i></span> Package Mover
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="parcel-tab" data-bs-toggle="tab" data-bs-target="#parcel" type="button" role="tab" aria-controls="parcel" aria-selected="false">
+              <span class="tab-icon bg-success text-white p-2 rounded-circle"><i class="bi bi-globe-central-south-asia"></i></span> All India Parcel
+            </button>
+          </li>
+        </ul>
+  
+
+        <div class="tab-content" id="logisticsTabsContent">
+       
+          <div class="tab-pane fade show active" id="truck" role="tabpanel" aria-labelledby="truck-tab">
+            <div class="row g-3 logistics-form">
+              <div class="col-lg-6">
+                <input type="text" class="form-control" placeholder="From Place" />
+              </div>
+              <div class="col-lg-6">
+                <input type="text" class="form-control" placeholder="To Place" />
+              </div>
+              <div class="col-lg-6">
+                <input type="date" class="form-control" />
+              </div>
+              <div class="col-lg-6">
+                <input type="number" class="form-control" placeholder="Package Weight (kg)" />
+              </div>
+              <div class="col-lg-6">
+                <input type="text" class="form-control" placeholder="Package Size (LxWxH)" />
+              </div>
+              <div class="col-lg-6">
+                <input type="text" class="form-control" placeholder="Contact Number" />
+              </div>
+              <div class="col-12">
+                <button class="btn btn-primary w-100" id="searchTruck">Search</button>
+              </div>
+            </div>
+          </div>
+  
+
+          <div class="tab-pane fade" id="package" role="tabpanel" aria-labelledby="package-tab">
+            <div class="row g-3 logistics-form">
+              <div class="col-lg-6">
+                <input type="text" class="form-control" placeholder="From Place" />
+              </div>
+              <div class="col-lg-6">
+                <input type="text" class="form-control" placeholder="To Place" />
+              </div>
+              <div class="col-lg-6">
+                <input type="date" class="form-control" />
+              </div>
+              <div class="col-lg-6">
+                <input type="number" class="form-control" placeholder="Package Weight (kg)" />
+              </div>
+              <div class="col-lg-6">
+                <input type="text" class="form-control" placeholder="Contact Number" />
+              </div>
+              <div class="col-12">
+                <button class="btn btn-primary w-100" id="searchPackage">Search</button>
+              </div>
+            </div>
+          </div>
+  
+
+          <div class="tab-pane fade" id="parcel" role="tabpanel" aria-labelledby="parcel-tab">
+            <div class="row g-3 logistics-form">
+              <div class="col-lg-6">
+                <input type="text" class="form-control" placeholder="From Place" />
+              </div>
+              <div class="col-lg-6">
+                <input type="text" class="form-control" placeholder="To Place" />
+              </div>
+              <div class="col-lg-6">
+                <input type="date" class="form-control" />
+              </div>
+              <div class="col-lg-6">
+                <input type="number" class="form-control" placeholder="Package Weight (kg)" />
+              </div>
+              <div class="col-lg-6">
+                <input type="text" class="form-control" placeholder="Contact Number" />
+              </div>
+              <div class="col-12">
+                <button class="btn btn-primary w-100" id="searchParcel">Search</button>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+
+        <div class="mt-4" id="estimatedCost" style="display: none;">
+          <h5>Estimated Cost: <span id="costAmount">₹0</span></h5>
+          <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#bookingModal">Confirm Booking</button>
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="bookingModalLabel">Booking Confirmation</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Thank you for your booking!</p>
+            <p>Your logistics details will be sent to you shortly.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Finalize Booking</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+   -->
+
+
+
+
+
+
+
+
+
+   <div class="container-fluid mt-5">
+    <!-- Nav tabs for Book Truck and Package Movers -->
+    <ul class="nav nav-tabs" id="logisticsTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="book-truck-tab" data-bs-toggle="tab" href="#book-truck" role="tab" aria-controls="book-truck" aria-selected="true">
+          <i class="bi bi-truck" style="font-size: 24px;"></i><br> Book Truck
+        </a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" id="package-movers-tab" data-bs-toggle="tab" href="#package-movers" role="tab" aria-controls="package-movers" aria-selected="false">
+          <i class="bi bi-box" style="font-size: 24px;"></i><br> Package Movers
+        </a>
+      </li>
+    </ul>
+  
+    <div class="tab-content" id="logisticsTabContent">
+      <!-- Book Truck Tab -->
+      <div class="tab-pane fade show active" id="book-truck" role="tabpanel" aria-labelledby="book-truck-tab">
+        <div class="row mt-4">
+          <div class="col-md-12">
+            <form>
+              <div class="row g-2">
+                <div class="col-md-3">
+                  <label for="pickupAddress" class="form-label">Pickup Address</label>
+                  <input type="text" class="form-control" id="pickupAddress" placeholder="Enter Pickup Address">
+                </div>
+                <div class="col-md-3">
+                  <label for="dropAddress" class="form-label">Drop Address</label>
+                  <input type="text" class="form-control" id="dropAddress" placeholder="Enter Drop Address">
+                </div>
+                <div class="col-md-2">
+                  <label for="phoneNumber" class="form-label">Phone Number</label>
+                  <input type="text" class="form-control" id="phoneNumber" placeholder="Phone Number">
+                </div>
+                <div class="col-md-2">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="name" placeholder="Your Name">
+                </div>
+                <div class="col-md-2">
+                  <label for="loadWeight" class="form-label">Load Weight</label>
+                  <select class="form-select" id="loadWeight">
+                    <optgroup label="Light Load">
+                      <option value="500">500 kg</option>
+                      <option value="750">750 kg</option>
+                    </optgroup>
+                    <optgroup label="Heavy Load">
+                      <option value="1250">1250 kg</option>
+                      <option value="1700">1700 kg</option>
+                      <option value="2500">2500 kg</option>
+                      <option value="3500">3500 kg</option>
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-md-12 text-start">
+                  <button type="submit" class="btn btn-primary">Book Truck</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Package Movers Tab -->
+      <div class="tab-pane fade" id="package-movers" role="tabpanel" aria-labelledby="package-movers-tab">
+        <div class="row mt-4">
+          <div class="col-md-12">
+            <form>
+              <div class="row g-2">
+                <div class="col-md-2">
+                  <label for="moversType" class="form-label">Select Type</label>
+                  <select class="form-select" id="moversType">
+                    <option value="domestic">Domestic</option>
+                    <option value="international">International</option>
+                  </select>
+                </div>
+                <div class="col-md-2">
+                  <label for="pickupLocation" class="form-label">Pickup Location</label>
+                  <input type="text" class="form-control" id="pickupLocation" placeholder="Pickup Location">
+                </div>
+                <div class="col-md-2">
+                  <label for="dropLocation" class="form-label">Drop Location</label>
+                  <input type="text" class="form-control" id="dropLocation" placeholder="Drop Location">
+                </div>
+                <div class="col-md-2">
+                  <label for="moversPhoneNumber" class="form-label">Phone Number</label>
+                  <input type="text" class="form-control" id="moversPhoneNumber" placeholder="Phone Number">
+                </div>
+                <div class="col-md-2">
+                  <label for="moversName" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="moversName" placeholder="Your Name">
+                </div>
+                <div class="col-md-2">
+                  <label for="shiftingDate" class="form-label">Shifting Date</label>
+                  <input type="date" class="form-control" id="shiftingDate">
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-md-12 text-start">
+                  <button type="submit" class="btn btn-primary">Book Package Movers</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  

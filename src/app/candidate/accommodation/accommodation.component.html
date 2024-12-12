@@ -1,0 +1,67 @@
+<section class="Accommodation py-5">
+    <h2>Accommodation</h2>
+    <div class="container Accommodation-container">
+      <div class="row justify-content-center">
+        <div class="col-lg-4">
+          <label for="citySelect" class="form-label">Select City</label>
+          <select class="form-select" id="citySelect" [(ngModel)]="selectedCity" (change)="onCityChange()">
+            <option selected>Select City</option>
+            <option *ngFor="let city of cities" [value]="city.name">{{ city.name }}</option>
+          </select>
+        </div>
+        <div class="col-lg-8">
+          <label for="searchInput" class="form-label">Search</label>
+          <div class="input-group rounded">
+            <input type="search" class="form-control rounded" id="searchInput" [(ngModel)]="searchInput" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+            <span class="input-group-text border-0" id="search-addon">
+              <i class="bi bi-search"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="row justify-content-center">
+        <div class="col">
+          <label for="buildingTypeSelect" class="form-label">Building Type</label>
+          <select class="form-select" id="buildingTypeSelect" [(ngModel)]="selectedBuildingType" (change)="onBuildingTypeChange()">
+            <option selected>Building Type</option>
+            <option value="commercial">Commercial</option>
+            <option value="residential">Residential</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="staySelect" class="form-label">Stay</label>
+          <select class="form-select" id="staySelect" [(ngModel)]="selectedCity">
+            <option selected>Stay</option>
+            <option *ngFor="let stay of stays">{{ stay }}</option>
+          </select>
+        </div>
+        <!-- Show only when Residential is selected -->
+        <div class="col" *ngIf="isResidential">
+          <label for="priceRange" class="form-label">Price Range</label>
+          <input type="range" class="form-range" id="priceRange" [(ngModel)]="priceRange" min="0" max="1000" step="10">
+          <div class="range-label">{{ priceRange }} USD</div>
+        </div>
+        <div class="col" *ngIf="isResidential">
+          <label for="bhkSelect" class="form-label">BHK</label>
+          <select class="form-select" id="bhkSelect" [(ngModel)]="selectedBHK">
+            <option selected>BHK</option>
+            <option *ngFor="let bhk of bhkOptions">{{ bhk }}</option>
+          </select>
+        </div>
+      </div>
+  
+      <div class="row justify-content-center align-items-center g-2">
+        <div class="col">
+          <label for="fromDate" class="form-label">From Date</label>
+          <input type="date" class="form-control" id="fromDate" [(ngModel)]="fromDate">
+        </div>
+        <div class="col">
+          <label for="toDate" class="form-label">To Date</label>
+          <input type="date" class="form-control" id="toDate" [(ngModel)]="toDate">
+        </div>
+      </div>
+      <button class="btn btn-primary mt-3" (click)="search()">Search</button>
+    </div>
+  </section>
+  

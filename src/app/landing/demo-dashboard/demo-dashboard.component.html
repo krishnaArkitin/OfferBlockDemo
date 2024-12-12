@@ -1,0 +1,67 @@
+<div class="d-flex" id="wrapper" [class.toggled]="isToggled">
+  <div class="bg-sidebar" id="sidebar-wrapper">
+    <div class="sidebar-heading text-center">
+      <i class="bi bi-person-circle icon-large"></i> 
+      <div>
+        <span class="fs-4 fw-bold primary-text">John Doe</span>
+        <p class="mt-2 second-text">Admin</p>
+      </div>
+    </div>
+    <div class="list-group list-group-flush my-3">
+      <a (click)="setActiveComponent('myOffers')" class="list-group-item list-group-item-action bg-transparent second-text">
+        <i class="bi bi-briefcase me-3"></i>My Offers
+      </a>
+      <a (click)="setActiveComponent('verification')" class="list-group-item list-group-item-action bg-transparent second-text">
+        <i class="bi bi-check-circle me-3"></i>Verification
+      </a>
+      <a (click)="setActiveComponent('travel')" class="list-group-item list-group-item-action bg-transparent second-text">
+        <i class="bi bi-airplane me-3"></i>Travel
+      </a>
+      <a (click)="setActiveComponent('accommodation')" class="list-group-item list-group-item-action bg-transparent second-text">
+        <i class="bi bi-house me-3"></i>Accommodation
+      </a>
+      <a (click)="setActiveComponent('logistics')" class="list-group-item list-group-item-action bg-transparent second-text">
+        <i class="bi bi-truck me-3"></i>Logistics
+      </a>>
+    </div>
+  </div>
+
+  <div id="page-content-wrapper">
+    <nav class="navbar navbar-expand-lg navbar-dashboard py-4 px-4">
+      <div class="d-flex align-items-center">
+        <i class="bi bi-list fs-4 me-3 dashboard-icons" id="menu-toggle" (click)="toggleSidebar()"></i>
+        <a href="" class="logoname"><span>OfferBlock</span></a>
+      </div>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon "></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li>
+            <a class="nav-link fw-bold" href="#"><i class="bi bi-bell me-2 dashboard-icons"></i></a>
+          </li>
+          <li>
+            <a class="nav-link fw-bold" href="#"><i class="bi bi-envelope me-2 dashboard-icons"></i></a>
+          </li>
+          <li>
+            <a class="nav-link fw-bold" href="#"><i class="bi bi-gear me-2 dashboard-icons"></i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid px-4">
+      <ng-container [ngSwitch]="activeComponent">
+        <app-my-offers *ngSwitchCase="'myOffers'"></app-my-offers>
+        <app-verification *ngSwitchCase="'verification'"></app-verification>
+        <app-travel *ngSwitchCase="'travel'"></app-travel>
+        <app-accommodation *ngSwitchCase="'accommodation'"></app-accommodation>
+        <app-logistics *ngSwitchCase="'logistics'"></app-logistics>
+        <div *ngSwitchDefault>Select an option from the sidebar</div>
+      </ng-container>
+    </div>
+  </div>
+</div>

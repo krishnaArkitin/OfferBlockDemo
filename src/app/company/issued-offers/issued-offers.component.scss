@@ -1,0 +1,578 @@
+// /* General Styles */
+// .issued-offers {
+//     background-color: #f8f9fa;
+//     padding: 15px;
+//   }
+  
+//   /* Mobile Card Styles */
+//   .card {
+//     background-color: #ffffff;
+//     border-radius: 15px;
+//     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+//     padding: 20px;
+//     margin-bottom: 20px;
+//     border: none;
+//     transition: all 0.3s ease-in-out;
+//   }
+  
+//   .card:hover {
+//     transform: translateY(-5px);
+//   }
+  
+//   .card-title {
+//     font-size: 1.3rem;
+//     font-weight: 600;
+//     margin-bottom: 10px;
+//     color: #343a40;
+//   }
+  
+//   .card-text {
+//     font-size: 0.95rem;
+//     margin-bottom: 10px;
+//     color: #6c757d;
+//   }
+  
+//   .card .badge {
+//     font-size: 0.85rem;
+//     padding: 0.5em 1em;
+//     margin-right: 5px;
+//   }
+  
+//   .card .badge.bg-warning {
+//     background-color: #ffc107;
+//     color: #343a40;
+//   }
+  
+//   .card .badge.bg-danger {
+//     background-color: #e74c3c;
+//     color: #fff;
+//   }
+  
+//   .card .badge.bg-success {
+//     background-color: #2ecc71;
+//     color: #fff;
+//   }
+  
+//   /* Responsive */
+//   @media (max-width: 576px) {
+//     .table {
+//       font-size: 0.85rem;
+//     }
+    
+//     .card-title {
+//       font-size: 1.1rem;
+//     }
+//   }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//   /* Set height for AG Grid table */
+// .ag-theme-alpine {
+//     height: 100%; /* Ensure full height for the container */
+//     width: 100%; /* Ensure the grid occupies full width */
+//   }
+  
+//   /* Custom style for the header */
+//   .ag-theme-alpine .ag-header {
+//     background-color: #343a40;
+//     color: white;
+//     font-weight: bold;
+//     text-align: center;
+//   }
+  
+//   /* Styling the cells */
+//   .ag-theme-alpine .ag-cell {
+//     font-family: 'Arial', sans-serif;
+//     font-size: 14px;
+//     text-align: center;
+//     padding: 10px;
+//   }
+  
+//   /* Adjust padding and margins for the grid */
+//   .ag-theme-alpine {
+//     margin: 20px auto;
+//     padding: 10px;
+//   }
+  
+//   /* Custom row height */
+//   .ag-theme-alpine .ag-row {
+//     min-height: 50px; /* Adjust row height */
+//   }
+  
+//   /* Set alternating row colors for better readability */
+//   .ag-theme-alpine .ag-row:nth-child(even) {
+//     background-color: #f9f9f9;
+//   }
+  
+//   .ag-theme-alpine .ag-row:nth-child(odd) {
+//     background-color: #ffffff;
+//   }
+  
+//   /* Adding hover effects on rows */
+//   .ag-theme-alpine .ag-row:hover {
+//     background-color: #e2e6ea;
+//   }
+
+
+
+
+
+
+
+// //   /* Style for candidate image in grid */
+// // .candidate-image {
+// //   width: 40px !important;
+// //   height: 40px;
+// //   border-radius: 50%;
+// //   margin-right: 10px;
+// //   vertical-align: middle;
+// // }
+
+// // /* Container for name and image */
+// // .candidate-cell {
+// //   display: flex;
+// //   align-items: center;
+// //   position: relative;
+// // }
+
+// // /* Hidden redirect button */
+// // .redirect-btn {
+// //   position: absolute;
+// //   right: 10px;
+// //   padding: 5px 10px;
+// //   display: none;
+// //   background-color: #007bff;
+// //   color: #fff;
+// //   border: none;
+// //   cursor: pointer;
+// // }
+
+// // /* Show redirect button on hover */
+// // .candidate-cell:hover .redirect-btn {
+// //   display: inline-block;
+// // }
+
+// // /* Style for status classes */
+// // .status-pending {
+// //   color: orange;
+// // }
+
+// // .status-accepted {
+// //   color: green;
+// // }
+
+// // .status-declined {
+// //   color: red;
+// // }
+
+// // /* Card image styles for mobile layout */
+// // .candidate-image-card {
+// //   width: 100%;
+// //   height: auto;
+// //   border-radius: 10px;
+// //   margin-bottom: 10px;
+// // }
+
+
+
+
+
+
+
+
+
+/* General Table Styling */
+::ng-deep .ag-theme-alpine {
+  background-color: #f8f9fa; /* Light background to contrast the table */
+  border-radius: 8px; /* Rounded corners for the table */
+  padding: 10px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Candidate Cell Styles */
+::ng-deep .candidate-cell {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #dee2e6; /* Soft border between rows */
+  transition: background-color 0.3s ease;
+}
+
+/* Candidate Image */
+::ng-deep .candidate-image {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+::ng-deep .candidate-cell:hover .candidate-image {
+  transform: scale(1.2); /* Enlarges the image slightly on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
+}
+
+/* Candidate Name */
+::ng-deep .candidate-name {
+  font-weight: 600;
+  color: #343a40;
+  font-size: 1.1rem;
+  margin-right: auto;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+::ng-deep .candidate-name:hover {
+  color: #007bff; /* Change name color on hover */
+}
+
+/* Redirect Button */
+::ng-deep .redirect-btn {
+  display: none;
+  padding: 6px 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+::ng-deep .candidate-cell:hover .redirect-btn {
+  display: inline-block; /* Button appears when row is hovered */
+}
+
+::ng-deep .redirect-btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Row Hover Effect */
+::ng-deep .candidate-cell:hover {
+  background-color: #e9ecef; /* Light gray on hover */
+}
+
+/* Offer Status Styling */
+::ng-deep .status-pending {
+  color: #ffc107; /* Warning yellow */
+  font-weight: bold;
+}
+
+::ng-deep .status-accepted {
+  color: #28a745; /* Success green */
+  font-weight: bold;
+}
+
+::ng-deep .status-declined {
+  color: #dc3545; /* Danger red */
+  font-weight: bold;
+}
+
+/* Verification Status Styling */
+::ng-deep .verification-status {
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-align: center;
+  display: inline-block;
+}
+
+::ng-deep .verification-status.completed {
+  background-color: #28a745; /* Green for completed */
+  color: white;
+}
+
+::ng-deep .verification-status.incomplete {
+  background-color: #dc3545; /* Red for incomplete */
+  color: white;
+}
+
+/* Table Header Styling */
+::ng-deep .ag-header-cell-label {
+  font-weight: 600;
+  color: #495057;
+  font-size: 1.1rem;
+}
+
+::ng-deep .ag-header-cell {
+  background-color: #f8f9fa; /* Light gray background */
+  text-align: left;
+}
+
+/* Pagination Styling */
+::ng-deep .ag-pagination-panel {
+  background-color: #f8f9fa;
+  padding: 10px;
+}
+
+
+::ng-deep .ag-ltr .ag-cell {
+  display: flex;
+  align-items: center;
+}
+
+
+::ng-deep .ag-theme-alpine {
+  width: 100%; /* or a fixed width like 800px */
+  overflow: auto; /* This will allow scrolling if necessary */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// /* General styling */
+// .candidate-details {
+//   background-color: #f9f9f9;
+//   border-radius: 8px;
+//   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+// }
+
+// .candidate-details h5 {
+//   font-weight: bold;
+// }
+
+// .candidate-details p {
+//   margin-bottom: 0.5rem;
+// }
+
+// .candidate-image-large {
+//   width: 150px;
+//   height: 150px;
+//   object-fit: cover;
+//   border-radius: 50%;
+//   border: 3px solid #ddd;
+// }
+
+// .candidate-name {
+//   font-size: 1.25rem;
+//   color: #333;
+// }
+
+// /* Table column styling for status indicators */
+// .status-pending {
+//   background-color: #ffc107;
+//   padding: 5px 10px;
+//   border-radius: 5px;
+//   color: #fff;
+// }
+
+// .status-accepted {
+//   background-color: #28a745;
+//   padding: 5px 10px;
+//   border-radius: 5px;
+//   color: #fff;
+// }
+
+// .status-declined {
+//   background-color: #dc3545;
+//   padding: 5px 10px;
+//   border-radius: 5px;
+//   color: #fff;
+// }
+
+// /* Candidate cell styling */
+// .candidate-cell {
+//   display: flex;
+//   align-items: center;
+// }
+
+// .candidate-cell .candidate-image {
+//   width: 40px;
+//   height: 40px;
+//   border-radius: 50%;
+//   margin-right: 10px;
+//   object-fit: cover;
+// }
+
+// .candi-img{
+//   width: 200px;
+// }
+
+// /* Badge styling for offer and verification statuses */
+// .badge {
+//   padding: 5px 10px;
+//   font-size: 0.875rem;
+//   border-radius: 5px;
+//   display: inline-block;
+// }
+
+// .badge.bg-warning {
+//   background-color: #ffc107;
+//   color: #fff;
+// }
+
+// .badge.bg-success {
+//   background-color: #28a745;
+//   color: #fff;
+// }
+
+// .badge.bg-danger {
+//   background-color: #dc3545;
+//   color: #fff;
+// }
+
+
+
+
+
+
+
+/* General styles for the candidate profile */
+.candidate-details {
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.candidate-details button {
+  float: right;
+}
+
+.candidate-image-large {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #007bff;
+}
+
+.candidate-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.candidate-cell img.candidate-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 8px;
+}
+
+.candidate-cell .candidate-name {
+  font-weight: bold;
+  color: #555;
+}
+
+.status-pending {
+  color: #ffc107;
+}
+
+.status-accepted {
+  color: #28a745;
+}
+
+.status-declined {
+  color: #dc3545;
+}
+
+/* Verification cards */
+.verification-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.verification-card {
+  flex: 1 1 calc(50% - 8px);
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+}
+
+.verification-card h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.verification-status {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #6c757d;
+}
+
+.verification-card.completed {
+  border-left: 5px solid #28a745;
+}
+
+.verification-card.waiting {
+  border-left: 5px solid #ffc107;
+}
+
+.verification-card.started {
+  border-left: 5px solid #007bff;
+}
+
+/* Social links card */
+.social-card {
+  flex: 1 1 100%;
+  background: #f8f9fa;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 16px;
+}
+
+.social-card h6 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #007bff;
+  text-decoration: none;
+  margin: 4px 0;
+}
+
+.social-link i {
+  font-size: 1.2rem;
+}
+
+.social-link:hover {
+  text-decoration: underline;
+}
+.card-ul{
+  display: flex;
+  list-style: none;
+  padding: 0px;
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 768px) {
+  .verification-card {
+    flex: 1 1 100%;
+  }
+}

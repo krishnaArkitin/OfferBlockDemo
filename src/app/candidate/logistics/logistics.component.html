@@ -1,0 +1,143 @@
+<section class="Logistics py-5">
+    <h2 class="text-center mb-4">Book Your Logistics</h2>
+    <div class="container">
+      <div class="logistics-box shadow-lg p-4 mb-5 bg-light rounded">
+        <!-- Select City Dropdown -->
+        <div class="row align-items-center mb-3">
+          <div class="col-lg-4">
+            <label for="selectCity" class="form-label">Select City</label>
+            <select id="selectCity" class="form-select city-select">
+              <option selected>Select City</option>
+              <option value="1">City 1</option>
+              <option value="2">City 2</option>
+              <option value="3">City 3</option>
+            </select>
+          </div>
+        </div>
+  
+        <!-- Tabs with logistics options -->
+        <ul class="nav nav-tabs justify-content-around mb-4" id="logisticsTabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="truck-tab" data-bs-toggle="tab" data-bs-target="#truck" type="button" role="tab" aria-controls="truck" aria-selected="true">
+              <span class="tab-icon bg-primary text-white p-2 rounded-circle"><i class="bi bi-truck"></i></span> Truck
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="package-tab" data-bs-toggle="tab" data-bs-target="#package" type="button" role="tab" aria-controls="package" aria-selected="false">
+              <span class="tab-icon bg-warning text-white p-2 rounded-circle"><i class="bi bi-box-seam"></i></span> Package Mover
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="parcel-tab" data-bs-toggle="tab" data-bs-target="#parcel" type="button" role="tab" aria-controls="parcel" aria-selected="false">
+              <span class="tab-icon bg-success text-white p-2 rounded-circle"><i class="bi bi-globe-central-south-asia"></i></span> All India Parcel
+            </button>
+          </li>
+        </ul>
+  
+        <!-- Tab content for logistics forms -->
+        <div class="tab-content" id="logisticsTabsContent">
+          <!-- Truck form -->
+          <div class="tab-pane fade show active" id="truck" role="tabpanel" aria-labelledby="truck-tab">
+            <div class="row g-3 logistics-form">
+              <div class="col-lg-6">
+                <input type="text" class="form-control" placeholder="From Place" />
+              </div>
+              <div class="col-lg-6">
+                <input type="text" class="form-control" placeholder="To Place" />
+              </div>
+              <div class="col-lg-6">
+                <input type="date" class="form-control" />
+              </div>
+              <div class="col-lg-6">
+                <input type="number" class="form-control" placeholder="Package Weight (kg)" />
+              </div>
+              <div class="col-lg-6">
+                <input type="text" class="form-control" placeholder="Package Size (LxWxH)" />
+              </div>
+              <div class="col-lg-6">
+                <input type="text" class="form-control" placeholder="Contact Number" />
+              </div>
+              <div class="col-12">
+                <button class="btn btn-primary w-100" id="searchTruck">Search</button>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Package Mover form -->
+          <div class="tab-pane fade" id="package" role="tabpanel" aria-labelledby="package-tab">
+            <div class="row g-3 logistics-form">
+              <div class="col-lg-6">
+                <input type="text" class="form-control" placeholder="From Place" />
+              </div>
+              <div class="col-lg-6">
+                <input type="text" class="form-control" placeholder="To Place" />
+              </div>
+              <div class="col-lg-6">
+                <input type="date" class="form-control" />
+              </div>
+              <div class="col-lg-6">
+                <input type="number" class="form-control" placeholder="Package Weight (kg)" />
+              </div>
+              <div class="col-lg-6">
+                <input type="text" class="form-control" placeholder="Contact Number" />
+              </div>
+              <div class="col-12">
+                <button class="btn btn-primary w-100" id="searchPackage">Search</button>
+              </div>
+            </div>
+          </div>
+  
+          <!-- All India Parcel form -->
+          <div class="tab-pane fade" id="parcel" role="tabpanel" aria-labelledby="parcel-tab">
+            <div class="row g-3 logistics-form">
+              <div class="col-lg-6">
+                <input type="text" class="form-control" placeholder="From Place" />
+              </div>
+              <div class="col-lg-6">
+                <input type="text" class="form-control" placeholder="To Place" />
+              </div>
+              <div class="col-lg-6">
+                <input type="date" class="form-control" />
+              </div>
+              <div class="col-lg-6">
+                <input type="number" class="form-control" placeholder="Package Weight (kg)" />
+              </div>
+              <div class="col-lg-6">
+                <input type="text" class="form-control" placeholder="Contact Number" />
+              </div>
+              <div class="col-12">
+                <button class="btn btn-primary w-100" id="searchParcel">Search</button>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Estimated Cost Section -->
+        <div class="mt-4" id="estimatedCost" style="display: none;">
+          <h5>Estimated Cost: <span id="costAmount">₹0</span></h5>
+          <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#bookingModal">Confirm Booking</button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Booking Confirmation Modal -->
+    <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="bookingModalLabel">Booking Confirmation</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Thank you for your booking!</p>
+            <p>Your logistics details will be sent to you shortly.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Finalize Booking</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

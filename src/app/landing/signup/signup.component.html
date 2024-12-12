@@ -1,0 +1,187 @@
+<!-- <div class="container-fluid vh-100">
+    <div class="row h-100">
+      
+      <div class="col-md-5 d-flex flex-column justify-content-center signup-form-section">
+        <div class="card  mx-auto">
+          <h3 class="text-center mb-4">Create an Account</h3>
+  
+
+          <ul class="nav nav-tabs mb-3" id="signupTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <a class="nav-link active" id="candidate-tab" data-bs-toggle="tab" href="#candidate-signup" role="tab" aria-controls="candidate-signup" aria-selected="true">Candidate Signup</a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link" id="company-tab" data-bs-toggle="tab" href="#company-signup" role="tab" aria-controls="company-signup" aria-selected="false">Company Signup</a>
+            </li>
+          </ul>
+  
+          <div class="tab-content" id="signupTabContent">
+
+            <div class="tab-pane fade show active" id="candidate-signup" role="tabpanel" aria-labelledby="candidate-tab">
+              <form (submit)="onCandidateSignup()">
+                <div class="mb-3">
+                    <label for="candidate-username" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="candidate-name" [(ngModel)]="candidatename" name="candidateUsername" />
+                  </div>
+                <div class="mb-3">
+                  <label for="candidate-username" class="form-label">Username</label>
+                  <input type="text" class="form-control" id="candidate-username" [(ngModel)]="candidateUsername" name="candidateUsername" />
+                </div>
+                <div class="mb-3">
+                  <label for="candidate-password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="candidate-password" [(ngModel)]="candidatePassword" name="candidatePassword" />
+                </div>
+                <div class="mb-3">
+                  <label for="candidate-pan" class="form-label">PAN Card</label>
+                  <input type="text" class="form-control" id="candidate-pan" [(ngModel)]="candidatePAN" name="candidatePAN" />
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Signup as Candidate</button>
+              </form>
+            </div>
+  
+
+            <div class="tab-pane fade" id="company-signup" role="tabpanel" aria-labelledby="company-tab">
+              <form (submit)="onCompanySignup()">
+                <div class="mb-3">
+                  <label for="company-name" class="form-label">Company Name</label>
+                  <input type="text" class="form-control" id="company-name" [(ngModel)]="companyName" name="companyName" />
+                </div>
+                <div class="mb-3">
+                  <label for="company-address" class="form-label">Company Address</label>
+                  <input type="text" class="form-control" id="company-address" [(ngModel)]="companyAddress" name="companyAddress" />
+                </div>
+                <div class="mb-3">
+                  <label for="company-username" class="form-label">Username</label>
+                  <input type="text" class="form-control" id="company-username" [(ngModel)]="companyUsername" name="companyUsername" />
+                </div>
+                <div class="mb-3">
+                  <label for="company-password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="company-password" [(ngModel)]="companyPassword" name="companyPassword" />
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Signup as Company</button>
+              </form>
+            </div>
+            
+            <p class="text-center mt-4">
+                Already have an account? <a routerLink="/login">Login here</a>
+              </p>
+
+          </div>
+        </div>
+      </div>
+      
+
+      <div class="col-md-7 position-relative d-flex flex-column justify-content-center align-items-center text-white signup-info-section">
+        <div class="info-content ">
+          <h2>Join Us Today!</h2>
+          <p class="lead mt-3">
+            Whether you're a candidate or a company, our platform offers comprehensive features to help you manage your career or business growth efficiently.
+          </p>
+          <ul class="mt-4">
+            <li>Exclusive offers for candidates</li>
+            <li>Efficient company management</li>
+            <li>Secure data processing</li>
+            <li>24/7 support for all users</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+   -->
+
+   <div class="container-fluid vh-100">
+    <div class="row h-100">
+      
+      <div class="col-md-5 d-flex flex-column justify-content-center signup-form-section">
+        <div class="card mx-auto">
+          <h3 class="text-center mb-4">Create an Account</h3>
+  
+          <ul class="nav nav-tabs mb-3" id="signupTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <a class="nav-link active" id="candidate-tab" data-bs-toggle="tab" href="#candidate-signup" role="tab" aria-controls="candidate-signup" aria-selected="true">Candidate Signup</a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link" id="company-tab" data-bs-toggle="tab" href="#company-signup" role="tab" aria-controls="company-signup" aria-selected="false">Company Signup</a>
+            </li>
+          </ul>
+  
+          <div class="tab-content" id="signupTabContent">
+  
+            <!-- Candidate Signup Tab -->
+            <div class="tab-pane fade show active" id="candidate-signup" role="tabpanel" aria-labelledby="candidate-tab">
+              <form (ngSubmit)="onCandidateSignup()">
+                <div class="mb-3">
+                  <label for="candidate-name" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="candidate-name" [(ngModel)]="candidate.name" name="candidateName" required />
+                </div>
+                <div class="mb-3">
+                  <label for="candidate-username" class="form-label">Username</label>
+                  <input type="text" class="form-control" id="candidate-username" [(ngModel)]="candidate.username" name="candidateUsername" required />
+                </div>
+                <div class="mb-3">
+                  <label for="candidate-password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="candidate-password" [(ngModel)]="candidate.password" name="candidatePassword" required />
+                </div>
+                <div class="mb-3">
+                  <label for="candidate-pan" class="form-label">PAN Card</label>
+                  <input type="text" class="form-control" id="candidate-pan" [(ngModel)]="candidate.panCard" name="candidatePAN" required />
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Signup as Candidate</button>
+              </form>
+            </div>
+  
+            <!-- Company Signup Tab -->
+            <div class="tab-pane fade" id="company-signup" role="tabpanel" aria-labelledby="company-tab">
+              <form (ngSubmit)="onCompanySignup()">
+                <div class="mb-3">
+                  <label for="company-name" class="form-label">Company Name</label>
+                  <input type="text" class="form-control" id="company-name" [(ngModel)]="company.companyName" name="companyName" required />
+                </div>
+                <div class="mb-3">
+                  <label for="company-address" class="form-label">Company Address</label>
+                  <input type="text" class="form-control" id="company-address" [(ngModel)]="company.companyAddress" name="companyAddress" required />
+                </div>
+                <div class="mb-3">
+                  <label for="company-username" class="form-label">Username</label>
+                  <input type="text" class="form-control" id="company-username" [(ngModel)]="company.username" name="companyUsername" required />
+                </div>
+                <div class="mb-3">
+                  <label for="company-password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="company-password" [(ngModel)]="company.password" name="companyPassword" required />
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Signup as Company</button>
+              </form>
+            </div>
+  
+            <p class="text-center mt-4">
+              Already have an account? <a routerLink="/login">Login here</a>
+            </p>
+  
+          </div>
+        </div>
+      </div>
+  
+      <!-- Right Side Information Section -->
+      <div class="col-md-7 position-relative d-flex flex-column justify-content-center align-items-center text-white signup-info-section">
+        <div class="info-content">
+          <h2>Join Us Today!</h2>
+          <p class="lead mt-3">
+            Whether you're a candidate or a company, our platform offers comprehensive features to help you manage your career or business growth efficiently.
+          </p>
+          <ul class="mt-4">
+            <li>Exclusive offers for candidates</li>
+            <li>Efficient company management</li>
+            <li>Secure data processing</li>
+            <li>24/7 support for all users</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+
+
+   

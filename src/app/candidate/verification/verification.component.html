@@ -1,0 +1,168 @@
+<div class="container my-5">
+    <h2 class="text-center mb-4">Verification Process</h2>
+  
+    <div class="verification-container">
+      <!-- Institute Verification -->
+      <div class="verification-step text-center">
+        <div class="circle-icon">
+          <i class="bi bi-mortarboard"></i> <!-- Bootstrap Icon -->
+        </div>
+        <h5 class="verification-name">Institute<br>Verification</h5>
+        <div class="verification-box">
+          <p>Verify academic credentials from the institute.</p>
+          <button class="btn btn-primary" (click)="startVerification('institute')">Start Verification</button>
+        </div>
+      </div>
+  
+      <!-- Connecting Line -->
+      <div class="connecting-line"></div>
+  
+      <!-- Police Verification -->
+      <div class="verification-step text-center">
+        <div class="circle-icon">
+          <i class="bi bi-shield-fill"></i>
+        </div>
+        <h5 class="verification-name">Police<br>Verification</h5>
+        <div class="verification-box">
+          <p>Check criminal records and background information.</p>
+          <button class="btn btn-primary" (click)="startVerification('police')">Start Verification</button>
+        </div>
+      </div>
+  
+      <!-- Connecting Line -->
+      <div class="connecting-line"></div>
+  
+      <!-- Previous Company Verification -->
+      <div class="verification-step text-center">
+        <div class="circle-icon">
+          <i class="bi bi-building"></i>
+        </div>
+        <h5 class="verification-name">Previous Company Verification</h5>
+        <div class="verification-box">
+          <p>Verify experience letters from previous employers.</p>
+          <button class="btn btn-primary" (click)="startVerification('company')">Start Verification</button>
+        </div>
+      </div>
+  
+      <!-- Connecting Line -->
+      <div class="connecting-line"></div>
+  
+      <!-- Social Verification -->
+      <div class="verification-step text-center">
+        <div class="circle-icon">
+          <i class="bi bi-person-check"></i>
+        </div>
+        <h5 class="verification-name">Social <br> Verification</h5>
+        <div class="verification-box">
+          <p>Assess social media presence and credibility.</p>
+          <button class="btn btn-primary" (click)="startVerification('social')">Start Verification</button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Dynamic Form Section -->
+    <!-- Dynamic Form Section -->
+<div *ngIf="activeForm" class="verification-form mt-4">
+    <ng-container [ngSwitch]="activeForm">
+  
+      <!-- Institute Verification Form -->
+      <div *ngSwitchCase="'institute'" class="form-section">
+        <h6 class="form-heading">Upload Academic Credentials</h6>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <input type="file" (change)="onFileChange($event)" accept=".pdf, .doc, .docx" class="form-control" />
+          </div>
+          <div class="col-md-6 mb-3">
+            <input type="text" placeholder="Institute Name" class="form-control" [(ngModel)]="formData.instituteName" />
+          </div>
+          <div class="col-md-6 mb-3">
+            <input type="text" placeholder="Course Name" class="form-control" [(ngModel)]="formData.courseName" />
+          </div>
+          <div class="col-md-6 mb-3">
+            <input type="text" placeholder="Graduation Year" class="form-control" [(ngModel)]="formData.graduationYear" />
+          </div>
+          <div class="col-md-6 mb-3">
+            <input type="text" placeholder="Institute Contact (optional)" class="form-control" [(ngModel)]="formData.instituteContact" />
+          </div>
+          <div class="col-md-12">
+            <button class="btn btn-success" (click)="submitVerification('institute')">Submit</button>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Police Verification Form -->
+      <div *ngSwitchCase="'police'" class="form-section">
+        <h6 class="form-heading">Upload Required Documents</h6>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <input type="file" (change)="onFileChange($event)" accept=".pdf, .doc, .docx" class="form-control" />
+          </div>
+          <div class="col-md-6 mb-3">
+            <input type="text" placeholder="Police Station Name" class="form-control" [(ngModel)]="formData.policeStation" />
+          </div>
+          <div class="col-md-6 mb-3">
+            <input type="text" placeholder="Address of Residence" class="form-control" [(ngModel)]="formData.address" />
+          </div>
+          <div class="col-md-6 mb-3">
+            <input type="date" class="form-control" [(ngModel)]="formData.dob" />
+          </div>
+          <div class="col-md-12 mb-3">
+            <textarea placeholder="Declare any prior criminal records (optional)" class="form-control" [(ngModel)]="formData.criminalRecords"></textarea>
+          </div>
+          <div class="col-md-12">
+            <button class="btn btn-success" (click)="submitVerification('police')">Submit</button>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Previous Company Verification Form -->
+      <div *ngSwitchCase="'company'" class="form-section">
+        <h6 class="form-heading">Upload Experience Letter</h6>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <input type="file" (change)="onFileChange($event)" accept=".pdf, .doc, .docx" class="form-control" />
+          </div>
+          <div class="col-md-6 mb-3">
+            <input type="text" placeholder="Previous Company Name" class="form-control" [(ngModel)]="formData.previousCompany" />
+          </div>
+          <div class="col-md-6 mb-3">
+            <input type="text" placeholder="Position Held" class="form-control" [(ngModel)]="formData.positionHeld" />
+          </div>
+          <div class="col-md-6 mb-3">
+            <input type="text" placeholder="Duration of Employment" class="form-control" [(ngModel)]="formData.employmentDuration" />
+          </div>
+          <div class="col-md-6 mb-3">
+            <input type="text" placeholder="Supervisor's Contact (optional)" class="form-control" [(ngModel)]="formData.supervisorContact" />
+          </div>
+          <div class="col-md-12">
+            <button class="btn btn-success" (click)="submitVerification('company')">Submit</button>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Social Verification Form -->
+      <div *ngSwitchCase="'social'" class="form-section">
+        <h6 class="form-heading">Upload Social Media Links</h6>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <input type="text" placeholder="LinkedIn Profile URL" class="form-control" [(ngModel)]="formData.linkedIn" />
+          </div>
+          <div class="col-md-6 mb-3">
+            <input type="text" placeholder="Other Relevant Links" class="form-control" [(ngModel)]="formData.otherLinks" />
+          </div>
+          <div class="col-md-12 mb-3">
+            <textarea placeholder="Overview of public activity (optional)" class="form-control" [(ngModel)]="formData.publicActivity"></textarea>
+          </div>
+          <div class="col-md-12 mb-3">
+            <input type="text" placeholder="References (optional)" class="form-control" [(ngModel)]="formData.references" />
+          </div>
+          <div class="col-md-12">
+            <button class="btn btn-success" (click)="submitVerification('social')">Submit</button>
+          </div>
+        </div>
+      </div>
+  
+    </ng-container>
+  </div>
+  
+  </div>

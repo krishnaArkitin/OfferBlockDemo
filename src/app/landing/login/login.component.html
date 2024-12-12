@@ -1,0 +1,115 @@
+<!-- <div class="container-fluid vh-100">
+  <div class="row h-100">
+
+    <div class="col-md-7 position-relative d-flex flex-column justify-content-center align-items-center text-white login-info-section">
+      <div class="info-content">
+        <h2>Welcome to OfferBlock</h2>
+        <p class="lead mt-3">
+          Join us and be a part of a dynamic team. Our platform provides a comprehensive solution for managing offers, onboarding, and more.
+        </p>
+        <ul class="mt-4">
+          <li>Secure Login</li>
+          <li>Manage Offers</li>
+          <li>Verify Credentials</li>
+          <li>Comprehensive Dashboard</li>
+        </ul>
+      </div>
+    </div>
+    
+
+    <div class="col-md-5 d-flex flex-column justify-content-center login-form-section">
+      <div class="card p-4">
+        <h3 class="text-center mb-4">Login to Your Account</h3>
+        <form (submit)="onLogin()">
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" [(ngModel)]="username" name="username" />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" />
+          </div>
+          <div class="mb-3">
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+          </div>
+          <p class="text-danger" *ngIf="errorMessage">{{ errorMessage }}</p>
+        </form>
+        <div class="text-center">
+          <p>Don't have an account? <a routerLink="/signup">Create an Account</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+
+
+<div class="container-fluid vh-100">
+  <div class="row h-100">
+    <!-- Left Side Content -->
+    <div class="col-md-7 position-relative d-flex flex-column justify-content-center align-items-center text-white login-info-section">
+      <div class="info-content">
+        <h2>Welcome to OfferBlock</h2>
+        <p class="lead mt-3">
+          Join us and be a part of a dynamic team. Our platform provides a comprehensive solution for managing offers, onboarding, and more.
+        </p>
+        <ul class="mt-4">
+          <li>Secure Login</li>
+          <li>Manage Offers</li>
+          <li>Verify Credentials</li>
+          <li>Comprehensive Dashboard</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Right Side Login Form -->
+    <div class="col-md-5 d-flex flex-column justify-content-center login-form-section">
+      <div class="card p-4">
+        <h3 class="text-center mb-4">Login to Your Account</h3>
+
+        <form (ngSubmit)="onLogin()">
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              [(ngModel)]="loginForm.username"
+              name="username"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              [(ngModel)]="loginForm.password"
+              name="password"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <button type="submit" class="btn btn-primary w-100" [disabled]="!loginForm.username || !loginForm.password">Login</button>
+          </div>
+
+          <!-- Error Message Display -->
+          <div *ngIf="errorMessage" class="text-danger text-center">
+            <p>{{ errorMessage }}</p>
+          </div>
+
+          <div class="text-center">
+            <p>Don't have an account? <a routerLink="/signup">Create an Account</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

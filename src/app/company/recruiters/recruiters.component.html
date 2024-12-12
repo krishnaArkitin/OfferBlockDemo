@@ -1,0 +1,85 @@
+<div class="recruiters-container">
+    <!-- Button to open the Create Recruiter modal -->
+    <button (click)="openCreateRecruiterModal()" class="btn btn-primary mb-3">Create Recruiter</button>
+  
+    <!-- ag-Grid table for recruiters -->
+    <ag-grid-angular
+      style="width: 100%; height: 400px;"
+      class="ag-theme-alpine"
+      [rowData]="rowData"
+      [columnDefs]="columnDefs"
+      [gridOptions]="gridOptions"
+      (rowClicked)="onRecruiterSelected($event)">
+    </ag-grid-angular>
+  
+    <!-- Recruiter details view -->
+    <div *ngIf="selectedRecruiter" class="recruiter-details mt-4 p-4">
+      <button (click)="closeRecruiterDetails()" class="btn btn-secondary mb-3"><i class="bi bi-x-lg"></i></button>
+  
+      <div class="row">
+        <div class="col-md-6">
+          <h5>Employee Name: {{ selectedRecruiter?.employeeName }}</h5>
+          <p><strong>Offer Block ID:</strong> {{ selectedRecruiter?.offerBlockId }}</p>
+          <p><strong>Designation:</strong> {{ selectedRecruiter?.designation }}</p>
+        </div>
+        <div class="col-md-6">
+          <p><strong>Offers Issued:</strong> {{ selectedRecruiter?.offersIssued }}</p>
+          <p><strong>Hirings:</strong> {{ selectedRecruiter?.hirings }}</p>
+        </div>
+      </div>
+  
+      <div class="projects">
+        <h5>Assigned Projects</h5>
+        <div *ngFor="let project of selectedRecruiter?.assignedProjects">
+          <div class="card mb-2">
+            <div class="card-body">
+              <h6 class="card-title">{{ project.projectName }}</h6>
+              <p><strong>Offers Issued:</strong> {{ project.offersIssued }}</p>
+              <p><strong>Hirings:</strong> {{ project.hirings }}</p>
+              <p><strong>Extra Details:</strong> {{ project.extraDetails }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Create Recruiter Modal -->
+    <div class="modal" #createRecruiterModal tabindex="-1" aria-labelledby="createRecruiterModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="createRecruiterModalLabel">Create Recruiter</h5>
+            <button type="button" class="btn-close" (click)="closeCreateRecruiterModal()" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form (ngSubmit)="onSubmitCreateRecruiter()">
+              <!-- Name field -->
+              <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" [(ngModel)]="newRecruiter.name" name="name" required>
+              </div>
+              <!-- Username field -->
+              <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" [(ngModel)]="newRecruiter.username" name="username" required>
+              </div>
+              <!-- Password field -->
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" [(ngModel)]="newRecruiter.password" name="password" required>
+              </div>
+              <!-- Designation field -->
+              <div class="mb-3">
+                <label for="designation" class="form-label">Designation</label>
+                <input type="text" class="form-control" id="designation" [(ngModel)]="newRecruiter.designation" name="designation" required>
+              </div>
+              <!-- Submit button -->
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  

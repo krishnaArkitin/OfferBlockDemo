@@ -1,0 +1,121 @@
+
+   .card {
+    background-color: #f5f7fa;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+ 
+  h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #3a3a3a;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+ 
+  label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+    display: inline-block;
+    font-size: 14px;
+  }
+  
+ 
+  input[type="text"],
+  input[type="date"],
+  input[type="file"],
+  select {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    font-size: 14px;
+    width: 100%;
+    transition: border-color 0.3s ease;
+  }
+  
+  input[type="text"]:focus,
+  input[type="date"]:focus,
+  input[type="file"]:focus,
+  select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0px 0px 6px rgba(0, 123, 255, 0.2);
+  }
+  
+ 
+  button {
+    background-color: #007bff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    color: #fff;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+    cursor: pointer;
+  }
+  
+ 
+  .card.shadow {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+ 
+  .row.g-3 > .col-md-6 {
+    padding: 15px;
+  }
+  
+ 
+  input[type="file"] {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  
+ 
+  button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 40px;
+    background-color: #28a745;
+    color: white;
+    font-size: 18px;
+    border-radius: 30px;
+    font-weight: bold;
+    box-shadow: 0px 5px 15px rgba(0, 123, 255, 0.1);
+  }
+  
+  button:hover {
+    background-color: #218838;
+  }
+  
+  button:active {
+    transform: scale(0.98);
+  }
+  
+  
+  input:hover, select:hover {
+    border-color: #007bff;
+  }
+  
+
+  @media (max-width: 768px) {
+    .container {
+      max-width: 100%;
+    }
+  
+    .row.g-3 > .col-md-6 {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  

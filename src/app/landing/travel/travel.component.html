@@ -1,0 +1,266 @@
+<div class="container my-5">
+  <h2 class="text-center mb-4">Travel Booking</h2>
+
+  <!-- NavTabs White Box with Shadow -->
+  <div class="nav-tab-box bg-white shadow-sm p-3 position-relative">
+    <!-- Nav Tabs with icons and labels -->
+    <ul class="nav nav-tabs justify-content-center" id="travelTab" role="tablist">
+      <li class="nav-item text-center" role="presentation">
+        <a class="nav-link active" id="cab-tab" data-bs-toggle="tab" href="#cab" role="tab" aria-controls="cab"
+          aria-selected="true">
+          <i class="bi bi-car-front-fill" style="font-size: 28px;"></i>
+          <div>Cab</div> <!-- Text under icon -->
+        </a>
+      </li>
+      <li class="nav-item text-center" role="presentation">
+        <a class="nav-link" id="train-tab" data-bs-toggle="tab" href="#train" role="tab" aria-controls="train"
+          aria-selected="false">
+          <i class="bi bi-train-front-fill" style="font-size: 28px;"></i>
+          <div>Train</div> <!-- Text under icon -->
+        </a>
+      </li>
+      <li class="nav-item text-center" role="presentation">
+        <a class="nav-link" id="flight-tab" data-bs-toggle="tab" href="#flight" role="tab" aria-controls="flight"
+          aria-selected="false">
+          <i class="bi bi-airplane-engines-fill" style="font-size: 28px;"></i>
+          <div>Flight</div> <!-- Text under icon -->
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Content Box that overlays the NavTabs -->
+  <div class="tab-content position-relative">
+    <!-- Cab Tab -->
+    <div class="tab-pane fade show active" id="cab" role="tabpanel" aria-labelledby="cab-tab">
+      <div class="content-box bg-white shadow ">
+
+        <h4>Cab Booking</h4>
+
+        <!-- Radio Buttons for Trip Type -->
+        <div class="form-group d-flex align-items-center mb-4">
+          <label class="me-3">
+            <input type="radio" [(ngModel)]="tripType" [ngModelOptions]="{standalone: true}" value="oneway" /> One Way
+            Trip
+          </label>
+          <label class="me-3">
+            <input type="radio" [(ngModel)]="tripType" [ngModelOptions]="{standalone: true}" value="airport" /> Airport
+            Transfer
+          </label>
+        </div>
+
+        <!-- Form Fields -->
+        <form (ngSubmit)="onSubmit()">
+          <div class="form-group d-flex align-items-center justify-content-between">
+            <!-- From Input Div -->
+            <div class="in-border">
+              <label for="From">From</label>
+              <div class="input-box border  px-3 py-2 me-2" (click)="toggleDropdown('from')">
+                <span>{{ selectedFrom || ' ' }}</span>
+                <div *ngIf="showDropdown === 'from'" class="dropdown-content">
+                  <ul>
+                    <li *ngFor="let city of cities" (click)="selectCity('from', city)">
+                      {{ city }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- To Input Div -->
+            <div class="in-border">
+              <label for="To">To</label>
+              <div class="input-box border  px-3 py-2 me-2" (click)="toggleDropdown('to')">
+                <span>{{ selectedTo || ' ' }}</span>
+                <div *ngIf="showDropdown === 'to'" class="dropdown-content">
+                  <ul>
+                    <li *ngFor="let city of cities" (click)="selectCity('to', city)">
+                      {{ city }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Departure Date Div -->
+            <div class="in-border">
+              <label for="Date">Date</label>
+              <i class="bi bi-calendar icon" (click)="d.toggle()"></i>
+              <div class="input-box border px-3 py-2 me-2">
+                <input id="datepicker" class="form-control" ngbDatepicker #d="ngbDatepicker" [(ngModel)]="inputDate"
+                  [ngModelOptions]="{ standalone: true }" />
+              </div>
+            </div>
+
+            <!-- Car Type Div -->
+            <div class="in-border">
+              <label for="carType">Cartype</label>
+              <div class="input-box border  px-3 py-2 me-2" (click)="toggleDropdown('carType')">
+                <span>{{ selectedCarType || '' }}</span>
+                <div *ngIf="showDropdown === 'carType'" class="dropdown-content">
+                  <ul>
+                    <li *ngFor="let carType of carTypes" (click)="selectCarType(carType)">
+                      {{ carType }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Pickup Time Div -->
+            <div class="in-border">
+              <label for="Time">Time</label>
+              <div class="input-box border px-3 py-2">
+                <input type="time" class="full-width" id="timepicker" [(ngModel)]="pickupTime"
+                  [ngModelOptions]="{standalone: true}" placeholder="Select Time" />
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary mt-4">Book Cab</button>
+
+          <!-- Swap Button -->
+          <button type="button" id="swapBtn" class="btn swap-button me-2" (click)="swapCities()">
+            <i class="bi bi-arrow-left-right"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Train Tab -->
+    <div class="tab-pane fade" id="train" role="tabpanel" aria-labelledby="train-tab">
+      <div class="content-box bg-white shadow p-4">
+        
+            <h4>Train Booking</h4>
+        
+            <!-- Form Fields -->
+            <form (ngSubmit)="onTrainSubmit()">
+              <div class="form-group d-flex align-items-center justify-content-between">
+        
+                <!-- From Input Div -->
+                <div class="in-border">
+                  <label for="From">From</label>
+                  <div class="input-box border  px-3 py-2 me-2" (click)="toggleDropdown('trainFrom')">
+                    <span>{{ selectedTrainFrom || ' ' }}</span>
+                    <div *ngIf="showDropdown === 'trainFrom'" class="dropdown-content">
+                      <ul>
+                        <li *ngFor="let city of cities" (click)="selectCity('trainFrom', city)">
+                          {{ city }}
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+        
+                <!-- To Input Div -->
+                <div class="in-border">
+                  <label for="To">To</label>
+                  <div class="input-box border  px-3 py-2 me-2" (click)="toggleDropdown('trainTo')">
+                    <span>{{ selectedTrainTo || ' ' }}</span>
+                    <div *ngIf="showDropdown === 'trainTo'" class="dropdown-content">
+                      <ul>
+                        <li *ngFor="let city of cities" (click)="selectCity('trainTo', city)">
+                          {{ city }}
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+        
+                <!-- Departure Date Div -->
+                <div class="in-border">
+                  <label for="Date">Date</label>
+                  <i class="bi bi-calendar icon" (click)="d.toggle()"></i>
+                  <div class="input-box border px-3 py-2 me-2">
+                    <input id="datepicker" class="form-control" ngbDatepicker #d="ngbDatepicker" [(ngModel)]="trainDepartureDate"
+                      [ngModelOptions]="{ standalone: true }" />
+                  </div>
+                </div>
+        
+                <!-- Train Class Div -->
+                <div class="in-border">
+                  <label for="trainClass">Class</label>
+                  <div class="input-box border  px-3 py-2 me-2" (click)="toggleDropdown('trainClass')">
+                    <span>{{ selectedTrainClass || ' ' }}</span>
+                    <div *ngIf="showDropdown === 'trainClass'" class="dropdown-content">
+                      <ul>
+                        <li *ngFor="let trainClass of trainClasses" (click)="selectTrainClass(trainClass)">
+                          {{ trainClass }}
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+              <button type="submit" class="btn btn-primary mt-4">Book Train</button>
+            </form>
+          </div>
+    </div>
+
+    <!-- Flight Tab -->
+    <div class="tab-pane fade" id="flight" role="tabpanel" aria-labelledby="flight-tab">
+      <div class="content-box bg-white shadow p-4">
+        <!-- Flight Form -->
+        <h4>Flight Booking</h4>
+        
+        
+        <div class="row justify-content-center">
+          <div class="form-group d-flex align-items-center">
+            <label class="me-3">
+              <input type="radio" [(ngModel)]="tripType" [ngModelOptions]="{standalone: true}" value="oneway" /> One Way
+              Trip
+            </label>
+            <label class="me-3">
+              <input type="radio" [(ngModel)]="tripType" [ngModelOptions]="{standalone: true}" value="airport" /> Multi City
+            </label>
+          </div>
+          <div class="col-lg-12">
+            <div class="p-4">
+              <form>
+                <div class="row">
+                  <!-- From Location -->
+                  <div class="col-md-3 tab-box mb-3">
+                    <label for="from" class="form-label">From</label>
+                    <input type="text" class="form-control" id="from" placeholder="Departure City" />
+                  </div>
+                  
+                  <!-- To Location -->
+                  <div class="col-md-3 tab-box mb-3">
+                    <label for="to" class="form-label">To</label>
+                    <input type="text" class="form-control" id="to" placeholder="Destination City" />
+                  </div>
+                  
+                  <!-- Date -->
+                  <div class="col-md-3 tab-box mb-3">
+                    <label for="date" class="form-label">Date</label>
+                    <input type="date" class="form-control" id="date" />
+                  </div>
+                  
+                  <!-- Class -->
+                  <div class="col-md-3 tab-box1 mb-3">
+                    <label for="class" class="form-label">Class</label>
+                    <select class="form-select" id="class">
+                      <option value="economy">Economy Class</option>
+                      <option value="business">Business Class</option>
+                    </select>
+                  </div>
+                </div>
+      
+                <!-- Submit Button -->
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Search Flights</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>

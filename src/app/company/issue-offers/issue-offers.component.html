@@ -1,0 +1,116 @@
+<!-- <div class="container mt-5">
+    <div class="card shadow p-4">
+      <h3 class="mb-4 text-center">Issue Offer Letter</h3>
+      <form>
+
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="candidateID" class="form-label">Candidate OfferBlock ID</label>
+            <input type="text" class="form-control" id="candidateID" placeholder="Enter OfferBlock ID">
+          </div>
+
+          <div class="col-md-6">
+            <label for="candidateName" class="form-label">Candidate Name</label>
+            <input type="text" class="form-control" id="candidateName" placeholder="Enter Candidate Name">
+          </div>
+          
+        </div>
+  
+        <div class="row g-3 mt-3">
+          <div class="col-md-6">
+            <label for="deadline" class="form-label">Offer Deadline</label>
+            <input type="date" class="form-control" id="deadline">
+          </div>
+          <div class="col-md-6">
+            <label for="position" class="form-label">Position</label>
+            <select class="form-select" id="position">
+              <option selected>Select Position</option>
+              <option value="1">Software Engineer</option>
+              <option value="2">Marketing Manager</option>
+              <option value="3">Product Designer</option>
+              <option value="4">Sales Executive</option>
+            </select>
+          </div>
+        </div>
+  
+        <div class="row g-3 mt-3">
+          <div class="col-md-6">
+            <label for="ctc" class="form-label">Offer Value (CTC)</label>
+            <input type="text" class="form-control" id="ctc" placeholder="Enter Offer Value (CTC)">
+          </div>
+          <div class="col-md-6">
+            <label for="jobLocation" class="form-label">Job Location</label>
+            <input type="text" class="form-control" id="jobLocation" placeholder="Enter Job Location">
+          </div>
+        </div>
+  
+        <div class="row g-3 mt-3">
+          <div class="col-md-12">
+            <label for="offerPdf" class="form-label">Offer PDF</label>
+            <input type="file" class="form-control" id="offerPdf" accept=".pdf">
+          </div>
+        </div>
+  
+        <div class="row mt-4">
+          <div class="col-md-12 text-center">
+            <button type="" class="btn btn-primary">Issue Offer</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div> -->
+
+
+
+
+
+  <div class="container">
+    <h2>Issue Offer to Candidate</h2>
+    <form [formGroup]="offerForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="offerBlockId">Offer Block ID</label>
+        <input
+          type="text"
+          id="offerBlockId"
+          formControlName="offerBlockId"
+          class="form-control"
+          (blur)="fetchCandidateDetails()"
+        />
+      </div>
+  
+      <div *ngIf="candidateDetails" class="candidate-details">
+        <p><strong>Candidate ID:</strong> {{ candidateDetails._id }}</p>
+        <p><strong>Name:</strong> {{ candidateDetails.name }}</p>
+      </div>
+  
+      <div class="form-group">
+        <label for="position">Position</label>
+        <input type="text" id="position" formControlName="position" class="form-control" />
+      </div>
+  
+      <div class="form-group">
+        <label for="ctc">CTC</label>
+        <input type="text" id="ctc" formControlName="ctc" class="form-control" />
+      </div>
+  
+      <div class="form-group">
+        <label for="deadline">Offer Deadline</label>
+        <input type="date" id="deadline" formControlName="deadline" class="form-control" />
+      </div>
+  
+      <div class="form-group">
+        <label for="jobLocation">Job Location</label>
+        <input type="text" id="jobLocation" formControlName="jobLocation" class="form-control" />
+      </div>
+  
+      <div class="form-group">
+        <label for="offerPdf">Offer PDF</label>
+        <input type="file" id="offerPdf" (change)="onFileChange($event)" class="form-control" />
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="offerForm.invalid">
+        Issue Offer
+      </button>
+    </form>
+  </div>
+  
